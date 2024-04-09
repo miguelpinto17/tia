@@ -5,7 +5,7 @@
 % Carregar a base de dados
 :- consult('bd.pl').
 
-
+:-consult('base conhecimento.pl').
 
 
 % Predicado para responder à consulta do usuário
@@ -23,7 +23,7 @@ responder_consulta(Sintoma) :-
             write('Otimo! Espero que melhore em breve.'), nl;
             apresentar_proximas_alternativas(NomesTratamentos, 1)
         );
-        write('Sintoma nao reconhecido ou nao registrado na base de dados.'), nl).
+        write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl).
 
 % Predicado para extrair apenas os nomes dos tratamentos
 extrair_nomes_tratamentos([], []).
@@ -62,13 +62,74 @@ responder_alternativa(Alternativa, NomesTratamentos, N) :-
 % Predicado principal para interação com o usuário
 interface :-
     write('Bem-vindo a interface de recomendacao medica.'), nl,
-    write('Por favor, insira o sintoma que voce esta sentindo: '), nl,
+    % Pergunta sobre sintoma
+    write('Por favor, insira o sintoma que voce esta a sentir : '), nl,
     read(Sintoma),
-    responder_consulta(Sintoma),
-    nl,
-    write('Deseja fazer outra consulta? (sim/nao)'), nl,
-    read(Resposta),
-    (Resposta == sim -> interface(); write('Obrigado por usar a interface. Adeus!')).
+    % Pergunta sobre alergias
+    write('Voce tem alguma alergia? (sim/nao)'), nl,
+    read(Alergias),
+    % Pergunta sobre idade
+    write('Qual e a sua idade? '), nl,
+    read(Idade),
+    % Pergunta sobre sexo
+    write('Qual e o seu sexo? (masculino/feminino)'), nl,
+    read(Sexo),
+    % Verifica se é mulher para perguntar sobre gravidez
+    (Sexo == feminino ->
+        write('Voce esta gravida? (sim/nao)'), nl,
+        read(Gravidez);
+        Gravidez = nao
+    ),
+    % Pergunta sobre doenças crônicas
+    write('Voce tem alguma doenca cronica? (sim/nao)'), nl,
+    read(DoencaCronica),
+    % Verifica as informações para ajustar a consulta
+    ajustar_consulta(Sintoma, Alergias, Idade, Sexo, Gravidez, DoencaCronica).
+
+% Predicado para ajustar a consulta com base nas informações pessoais
+ajustar_consulta(Sintoma, Alergias, Idade, Sexo, Gravidez, DoencaCronica) :-
+    % Verifica se o sintoma é reconhecido na base de dados
+    (tratamento(Sintoma, Tratamentos) ->
+        % Extrai apenas os nomes dos tratamentos
+        extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
+        % Apresenta apenas o primeiro nome de tratamento
+        nth0(0, NomesTratamentos, PrimeiroTratamento),
+        %write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
+        % Verifica se há restrições de tratamento com base nas informações pessoais
+        verificar_restricoes_tratamento(PrimeiroTratamento, Alergias, Idade, Sexo, Gravidez, DoencaCronica),
+        % Pergunta se deseja fazer outra consulta
+        responder_consulta(Sintoma),
+        nl,
+        write('Deseja fazer outra consulta? (sim/nao)'), nl,
+        read(Resposta),
+        (Resposta == sim -> interface(); write('Obrigado por usar a interface. Adeus!'))
+    ;
+        write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl,
+        % Pergunta se deseja fazer outra consulta
+        write('Deseja fazer outra consulta? (sim/nao)'), nl,
+        read(Resposta),
+        (Resposta == sim -> interface(); write('Obrigado por usar a interface. Adeus!'))
+    ).
+
+% Predicado para extrair apenas os nomes dos tratamentos
+extrair_nomes_tratamentos([], []).
+extrair_nomes_tratamentos([Tratamento|Resto], [Nome|NomesRestantes]) :-
+    functor(Tratamento, Nome, _),
+    extrair_nomes_tratamentos(Resto, NomesRestantes).
+
+% Predicado para verificar se há restrições de tratamento com base nas informações pessoais
+verificar_restricoes_tratamento(Tratamento, Alergias, Idade, Sexo, Gravidez, DoencaCronica) :-
+    % Implemente aqui a lógica para verificar restrições de tratamento com base nas informações pessoais.
+    % Por exemplo, se o paciente for alérgico a algum componente do tratamento, se estiver grávida, etc.
+    % Você pode usar as informações fornecidas para adaptar o tratamento sugerido conforme necessário.
+    % Esta é apenas uma estrutura básica para ilustrar como você pode adicionar essa lógica.
+
+    % Exemplo simples: Se o paciente for alérgico a algum componente do tratamento, exibir uma mensagem.
+    (Alergias == sim ->
+        write('Atencao: Voce tem alergia a algum tratamento sugerido?'), nl
+    ;   % Caso contrário, não há restrições adicionais.
+        true
+    ).
 
 % Iniciar a interface quando o arquivo for consultado
 :- initialization(interface).
