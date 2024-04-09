@@ -126,8 +126,9 @@ verificar_restricoes_tratamento(Tratamento, Alergias, Idade, Sexo, Gravidez, Doe
 
     % Exemplo simples: Se o paciente for alérgico a algum componente do tratamento, exibir uma mensagem.
     (Alergias == sim ->
-        write('Atencao: Voce tem alergia a algum tratamento sugerido?'), nl
-    ;   % Caso contrário, não há restrições adicionais.
+        write('Atencao: Qual  a sua Alergia?'), nl,
+        read(alergia);
+       % Caso contrário, não há restrições adicionais.
         true
     ).
 

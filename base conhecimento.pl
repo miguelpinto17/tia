@@ -1,6 +1,10 @@
 :- dynamic idade/1, sintoma/1, gravidez/1.
 % Regras para recomendação médica com base nos sintomas, tratamentos, idade e gravidez
+idoso(Idade) :-
+    Idade > 65.
 
+jovem(Idade) :-
+    Idade =< 65.
 % Regra 1: Se o paciente tem tosse e febre e é jovem, recomende paracetamol.
 recomendacao_medicamento(paracetamol) :-
     sintoma(tosse),
