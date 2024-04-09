@@ -1,6 +1,7 @@
 % Predicado para responder à consulta do usuário
 :- dynamic sintoma/2.
 :- dynamic tratamento/2.
+:- dynamic dosagem/2.
 
 % Carregar a base de dados
 :- consult('bd.pl').
@@ -9,6 +10,8 @@
 
 
 % Predicado para responder à consulta do usuário
+% Predicado para responder à consulta do usuário
+% Predicado para responder à consulta do usuário
 responder_consulta(Sintoma) :-
     (tratamento(Sintoma, Tratamentos) ->
         % Extrai apenas os nomes dos tratamentos
@@ -16,14 +19,27 @@ responder_consulta(Sintoma) :-
         % Apresenta apenas o primeiro nome de tratamento
         nth0(0, NomesTratamentos, PrimeiroTratamento),
         write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
+        % Obtém a dosagem ou recomendação de uso do tratamento
+        obter_dosagem(PrimeiroTratamento, Dosagem),
+        write('Dosagem/recomendação de uso: '), write(Dosagem), nl,
         write('Voce esta ok com este tratamento? (sim/nao)'), nl,
         read(RespostaTratamento),
         % Se o cliente não estiver satisfeito, apresenta os nomes dos tratamentos adicionais
         (RespostaTratamento == sim ->
             write('Otimo! Espero que melhore em breve.'), nl;
             apresentar_proximas_alternativas(NomesTratamentos, 1)
-        );
+        )
+    ;
         write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl).
+
+% Predicado para obter a dosagem ou recomendação de uso do tratamento
+obter_dosagem(Tratamento, Dosagem) :-
+    % Verifica se há uma dosagem associada ao tratamento
+    dosagem(Tratamento, Dosagem),
+    print(Dosagem).
+% Se não houver dosagem associada, retorna uma mensagem padrão
+%obter_dosagem(_, 'Não há dosagem/recomendação específica para este tratamento.').
+
 
 % Predicado para extrair apenas os nomes dos tratamentos
 extrair_nomes_tratamentos([], []).
@@ -133,4 +149,4 @@ verificar_restricoes_tratamento(Tratamento, Alergias, Idade, Sexo, Gravidez, Doe
     ).
 
 % Iniciar a interface quando o arquivo for consultado
-:- initialization(interface).
+%:- initialization(interface).

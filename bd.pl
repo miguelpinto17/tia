@@ -82,9 +82,9 @@ tratamento(perda_de_paladar, [avaliacao_medica, exames_complementares, tratament
 
 % Doses
 
-dosagem(paracetamol,500, 'Tomar 1 comprimido de 500mg a cada 6 horas').
-dosagem(paracetamol,1000, 'Tomar 1 comprimido de 1000mg a cada 8 horas').
-dosagem(ibuprofeno,400, 'Tomar 1 comprimido de 400mg a cada 8 horas').
+dosagem(paracetamol_500, 'Tomar 1 comprimido de 500mg a cada 6 horas').
+dosagem(paracetamol_1000, 'Tomar 1 comprimido de 1000mg a cada 8 horas').
+dosagem(ibuprofeno_400, 'Tomar 1 comprimido de 400mg a cada 8 horas').
 dosagem(mel, 'Tomar 1 colher de sopa de mel a cada 6 horas').
 dosagem(xarope, 'Tomar o xarope de acordo com as instruções do rótulo').
 dosagem(analgesico, 'Tomar o analgésico conforme a prescrição médica').
