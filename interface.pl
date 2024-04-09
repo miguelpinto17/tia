@@ -1,4 +1,4 @@
-% Predicado para responder à consulta do usuário
+% Predicado para responder à consulta do utilizador
 :- dynamic sintoma/2.
 :- dynamic tratamento/2.
 
@@ -8,7 +8,7 @@
 :-consult('base conhecimento.pl').
 
 
-% Predicado para responder à consulta do usuário
+% Predicado para responder à consulta do utilizador
 responder_consulta(Sintoma) :-
     (tratamento(Sintoma, Tratamentos) ->
         % Extrai apenas os nomes dos tratamentos
@@ -59,7 +59,7 @@ responder_alternativa(Alternativa, NomesTratamentos, N) :-
     ).
 
 
-% Predicado principal para interação com o usuário
+% Predicado principal para interação com o utilizador
 interface :-
     write('Bem-vindo a interface de recomendacao medica.'), nl,
     % Pergunta sobre sintoma
