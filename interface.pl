@@ -149,4 +149,4 @@ verificar_restricoes_tratamento(Tratamento, Alergias, Idade, Sexo, Gravidez, Doe
     ).
 
 % Iniciar a interface quando o arquivo for consultado
-%:- initialization(interface).
+:- initialization(interface).
