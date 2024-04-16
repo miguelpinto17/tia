@@ -1,16 +1,13 @@
-% Predicado para responder à consulta do utilizador
-:- dynamic sintoma/2.
-:- dynamic tratamento/2.
-:- dynamic dosagem/2.
-
-% Carregar a base de dados
-:- consult('bd.pl').
-
-:-consult('base conhecimento.pl').
+    :-dynamic(fact/1),
+[forward, bd, proof, baseconhecimento].
 
 
 % Predicado para responder à consulta do usuário
+
 responder_consulta(Sintoma) :-
+    assertz(sintoma(Sintoma)), % Adiciona o sintoma à base de conhecimento
+    forward(), % Execute o mecanismo de inferência forward chaining
+    proof(), % Execute o mecanismo de prova
     (tratamento(Sintoma, Tratamentos) ->
         % Extrai apenas os nomes dos tratamentos
         extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
@@ -35,33 +32,17 @@ obter_dosagem(Tratamento, Dosagem) :-
     % Verifica se há uma dosagem associada ao tratamento
     dosagem(Tratamento, Dosagem),
     print(Dosagem).
-% Se não houver dosagem associada, retorna uma mensagem padrão
-%obter_dosagem(_, 'Não há dosagem/recomendação específica para este tratamento.').
-
-
-% Predicado para extrair apenas os nomes dos tratamentos
+% Predicado para extrair apenas os nomes dos tratamentos de uma lista de tratamentos
 extrair_nomes_tratamentos([], []).
-extrair_nomes_tratamentos([Tratamento|Resto], [Nome|NomesRestantes]) :-
-    functor(Tratamento, Nome, _),
+extrair_nomes_tratamentos([tratamento(Nome, _) | Resto], [Nome | NomesRestantes]) :-
     extrair_nomes_tratamentos(Resto, NomesRestantes).
 
-% Predicado para apresentar as próximas alternativas de tratamento
-apresentar_proximas_alternativas(NomesTratamentos, N) :-
-    length(NomesTratamentos, Length),
-    (N < Length ->
-        nth0(N, NomesTratamentos, Alternativa),
-        write('Voce gostaria de considerar outra alternativa de tratamento? (sim/nao)'), nl,
-        read(Resposta),
-        (Resposta == sim ->
-            write('Tratamento alternativo '), write(N), write(': '), write(Alternativa), nl,
-            responder_alternativa(Alternativa, NomesTratamentos, N)
-        ;
-            write('Obrigado por usar a interface. Adeus!'), nl
-        )
-    ;
-        write('Nao há mais alternativas de tratamento disponíveis.'), nl
-    ).
-
+% Predicado para apresentar os nomes dos próximos tratamentos alternativos, se houver
+apresentar_proximas_alternativas([], _).
+apresentar_proximas_alternativas([Nome | Resto], Indice) :-
+    write(Indice), write('. '), write(Nome), nl,
+    ProximoIndice is Indice + 1,
+    apresentar_proximas_alternativas(Resto, ProximoIndice).
 % Predicado para tratar a resposta do cliente
 responder_alternativa(Alternativa, NomesTratamentos, N) :-
     write('Voce esta ok com este tratamento? (sim/nao)'), nl,
@@ -108,7 +89,6 @@ ajustar_consulta(Sintoma, Alergias, Idade, Sexo, Gravidez, DoencaCronica) :-
         extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
         % Apresenta apenas o primeiro nome de tratamento
         nth0(0, NomesTratamentos, PrimeiroTratamento),
-        %write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
         % Verifica se há restrições de tratamento com base nas informações pessoais
         verificar_restricoes_tratamento(PrimeiroTratamento, Alergias, Idade, Sexo, Gravidez, DoencaCronica),
         % Pergunta se deseja fazer outra consulta
@@ -133,18 +113,54 @@ extrair_nomes_tratamentos([Tratamento|Resto], [Nome|NomesRestantes]) :-
 
 % Predicado para verificar se há restrições de tratamento com base nas informações pessoais
 verificar_restricoes_tratamento(Tratamento, Alergias, Idade, Sexo, Gravidez, DoencaCronica) :-
-    % Implemente aqui a lógica para verificar restrições de tratamento com base nas informações pessoais.
-    % Por exemplo, se o paciente for alérgico a algum componente do tratamento, se estiver grávida, etc.
-    % Você pode usar as informações fornecidas para adaptar o tratamento sugerido conforme necessário.
-    % Esta é apenas uma estrutura básica para ilustrar como você pode adicionar essa lógica.
-
-    % Exemplo simples: Se o paciente for alérgico a algum componente do tratamento, exibir uma mensagem.
+    % Verifica se há alergias
     (Alergias == sim ->
-        write('Atencao: Qual  a sua Alergia?'), nl,
-        read(alergia);
-       % Caso contrário, não há restrições adicionais.
+        write('Atenção: Qual é a sua alergia?'), nl,
+        read(alergia),
+        (alergia == componente_alergico_do_tratamento ->
+            write('Este tratamento contém um componente ao qual você é alérgico. Recomendamos consultar um médico para uma alternativa.'),
+            fail % Se há uma alergia, falha na verificação para interromper a consulta
+        ; % Caso contrário, continue com a verificação
+            true
+        )
+    ; % Se não há alergias, não há restrições adicionais
+        true
+    ),
+
+    % Verifica se a pessoa está grávida
+    ((Sexo == feminino, Gravidez == sim) ->
+        (tratamento_pode_ser_perigoso_durante_a_gravidez(Tratamento) ->
+            write('Este tratamento pode ser perigoso durante a gravidez. Recomendamos consultar um médico para uma alternativa.'),
+            fail % Se o tratamento é perigoso durante a gravidez, falha na verificação para interromper a consulta
+        ; % Caso contrário, continue com a verificação
+            true
+        )
+    ; % Se a pessoa não está grávida ou é do sexo masculino, não há restrições adicionais
+        true
+    ),
+    % Verifica se a pessoa é idosa
+    (Idade >= 65 ->
+        % Implemente a lógica para verificar se o tratamento é seguro para idosos
+        % Por exemplo:
+        (tratamento_pode_ser_perigoso_para_idosos(Tratamento) ->
+            write('Este tratamento pode ser perigoso para pessoas idosas. Recomendamos consultar um médico para uma alternativa.'),
+            fail % Se o tratamento é perigoso para idosos, falha na verificação para interromper a consulta
+        ; % Caso contrário, continue com a verificação
+            true
+        )
+    ; % Se a pessoa não é idosa, não há restrições adicionais
+        true
+    ),
+    % Verifica se a pessoa tem alguma doença crônica
+    (DoencaCronica == sim ->
+        (tratamento_pode_ser_perigoso_para_doenca_cronica(Tratamento) ->
+            write('Este tratamento pode ser perigoso para pessoas com doenças crônicas. Recomendamos consultar um médico para uma alternativa.'),
+            fail % Se o tratamento é perigoso para doenças crônicas, falha na verificação para interromper a consulta
+        ; % Caso contrário, continue com a verificação
+            true
+        )
+    ; % Se a pessoa não tem doenças crônicas, não há restrições adicionais
         true
     ).
-
 % Iniciar a interface quando o arquivo for consultado
 :- initialization(interface).

@@ -42,7 +42,7 @@ sintoma(perda_de_paladar).
 % Tratamentos 
 
 tratamento(tosse, [paracetamol_500, mel, xarope]).
-tratamento(febre, [paracetamol_1000, ibuprofeno(400), repouso]).
+tratamento(febre, [paracetamol_1000, ibuprofeno_400, repouso]).
 tratamento(perda_de_peso, [avaliacao_medica, dieta_balanceada, exercicios_fisicos]).
 tratamento(dor, [analgesico, anti_inflamatorio, repouso]).
 tratamento(mal_estar, [repouso, hidratacao, dieta_leve]).
