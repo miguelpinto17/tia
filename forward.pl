@@ -5,28 +5,39 @@
 :- op( 300, xfy, or).
 :- op( 500, xfy, and).
 
+% Definição do predicado fact/1
+fact(_).
+if(_).
 
-result:- new_derived_fact(P),             
-   !,
-   resultadowrite(P), nl,
-   assert(fact(P)),
-   write(P),
-   result.                           
-result:- nl,write( 'Esperemos que goste da recomendacao, disfrute') .          
+% Regras para o encadeamento forward
+result :- 
+    new_derived_fact(P),             
+    !,
+    write(P), nl,
+    assert(fact(P)),
+    result.                           
+result :- 
+    nl, write('Esperemos que goste da recomendacao, disfrute').
 
-new_derived_fact( Concl)  :-
-   if Cond then Concl,               
-   \+ fact( Concl),                 
-   composed_fact( Cond).             
+new_derived_fact(Concl) :- 
+    if Cond then Concl,             
+    \+ fact(Concl),                  
+    composed_fact(Cond, Concl).        
 
-composed_fact( Cond)  :-
-   fact( Cond).                      
+composed_fact(Cond, Concl) :- 
+    Cond, 
+    !, 
+    Concl.
 
-composed_fact( Cond1 and Cond2)  :-
-   composed_fact( Cond1),
-   composed_fact( Cond2).            
+composed_fact((Cond1 and Cond2), Concl) :- 
+    composed_fact(Cond1, _), 
+    composed_fact(Cond2, _), 
+    Concl.
 
-composed_fact( Cond1 or Cond2)  :-
-   composed_fact( Cond1)
-   ;
-   composed_fact( Cond2).
+composed_fact((Cond1 or _), Concl) :- 
+    composed_fact(Cond1, Concl), 
+    !.
+
+composed_fact((_ or Cond2), Concl) :- 
+    composed_fact(Cond2, Concl).
+
