@@ -24,7 +24,7 @@ sintoma(rotura_muscular).
 
 % Tratamentos 
 %tratamento(sintoma,sexo,doencascronica, gravidez, idade, [paracetamol_500, mel, xarope]).
-tratamento(tosse,[paracetamol_500, mel, xarope], 'Masculino','nao','nao','<65 and >=18').
+tratamento(tosse, 'Masculino','nao','nao','<65 and >=18',[paracetamol_500, mel, xarope]).
 tratamento(tosse,'Masculino','nao','nao','18<',[mel, xarope]).
 tratamento(tosse,'Masculino','nao','nao','>=65',[mel, xarope]).
 tratamento(tosse,'Masculino','sim','nao','18<',[mel, cha]).

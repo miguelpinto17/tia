@@ -30,8 +30,8 @@ questao1:-	write('**************************************************************
 			write('**  2 - Feminino'), nl,nl,
 			read(A1),
 			(
-			(A1 == 1),assert(fact(sexo)), questao3;
-            (A1 == 2),assert(fact(sexo)),  questao2).
+			(A1 == 1),assert(fact(Masculino)), questao3;
+            (A1 == 2),assert(fact(Feminino)),  questao2).
 
 questao2:-	write('********************************************************************************************************'), nl,
 			write('**  Voce esta gravida?'), nl,
@@ -40,7 +40,7 @@ questao2:-	write('**************************************************************
 			write('**  2 - Nao'), nl,nl,
 			read(A2),
             (
-                (A2 == 1),assert(fact(gravidez)), questao3;
+                (A2 == 1),assert(fact(Gravidez)), questao3;
                 (A2 == 2),  questao3).
 			
 questao3:-	write('********************************************************************************************************'), nl,
@@ -50,7 +50,7 @@ write('**  1 - Sim'), nl,
 write('**  2 - Nao'), nl,nl,
 read(A3),
 (
-    (A3 == 1),assert(fact(doencaCronica)), questao4;
+    (A3 == 1),assert(fact(DoencaCronica)), questao4;
     (A3 == 2),  questao4).
 
 questao4:- 	write('********************************************************************************************************'), nl,
