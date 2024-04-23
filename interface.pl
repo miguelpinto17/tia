@@ -1,150 +1,136 @@
-% Predicado para responder à consulta do utilizador
-:- dynamic sintoma/2.
-:- dynamic tratamento/2.
-:- dynamic dosagem/2.
+:-dynamic(fact/1),
+[forward, bd, proof, base_conhecimento].
 
-% Carregar a base de dados
-:- consult('bd.pl').
+menu:- nl,nl , 	write('********************************************************************************************************'), nl,
+				write('           Bem-vindo a interface de recomendacao medica.Diga-nos o seu nome?'),nl,
+				read(X) ,nl,
+				write('********************************************************************************************************'), nl,nl,
+				write('  Prazer em ajuda-lo/a Sr./a '), write(X) ,nl,nl,nl,
+				write('********************************************************************************************************'), nl,
+				write('**                                                                                                    **'), nl,			 
+				write('**                          Vamos ajuda-lo a descobrir o seu sintoma                       **'), nl,
+				write('**                      Faremos algumas perguntas para o/a ajudar na escolha do seu tratamento!                     **'), nl, 
+				write('**                                                                                                    **'), nl,			 
+				write('********************************************************************************************************'), nl,
+				write('**   Menu:'), nl,
+				write('**'), nl,
+				write('**   1- Iniciar'), nl,
+				write('**   2- Sair'), nl,nl,
+				read(Y),
+				avaliarEscolha(Y).
 
-:-consult('base_conhecimento.pl').
+avaliarEscolha(1):- questao1.
+avaliarEscolha(2):- write('Foi um prazer ajuda-lo!'), halt.
+avaliarEscolha(other):- write('Introduza uma opcao valida, por favor comece de novo'), menu.
+
+questao1:-	write('********************************************************************************************************'), nl,
+			write('**  Qual e o seu sexo?'), nl,
+			write('**'),nl,
+			write('**  1 - Masculino'), nl,
+			write('**  2 - Feminino'), nl,nl,
+			read(A1),
+			(
+			(A1 == 1),assert(fact(sexo)), questao3;
+            (A1 == 2),assert(fact(sexo)),  questao2).
+
+questao2:-	write('********************************************************************************************************'), nl,
+			write('**  Voce esta gravida?'), nl,
+			write('**'),nl,
+            write('**  1 - Sim'), nl,
+			write('**  2 - Nao'), nl,nl,
+			read(A2),
+            (
+                (A2 == 1),assert(fact(gravidez)), questao3;
+                (A2 == 2),  questao3).
+			
+questao3:-	write('********************************************************************************************************'), nl,
+write('**  Voce tem alguma doenca cronica?'), nl,
+write('**'),nl,
+write('**  1 - Sim'), nl,
+write('**  2 - Nao'), nl,nl,
+read(A3),
+(
+    (A3 == 1),assert(fact(doencaCronica)), questao4;
+    (A3 == 2),  questao4).
+
+questao4:- 	write('********************************************************************************************************'), nl,
+write('** Qual e a sua idade?'), nl,
+write('**'),nl,
+write('**  1 - 0-16'),nl, 
+write('**  2 - 17-64' ),nl, nl,
+write('**  3 - 65-100' ),nl, nl,
+read(A4),nl,
+    (
+    (A4 == 1), assert(fact(jovem)),questao5; 
+    (A4 == 2), assert(fact(adulto)),questao5;
+    (A4 == 3), assert(fact(idoso)),questao5).
+    
+			
+
+questao5:-	write('********************************************************************************************************'), nl,
+write('**  Qual o seu genero favorito? Destas opcoes, introduza o numero correspondente:'), nl,
+write('**'),nl,
+			write('**  1 - Tosse'), nl,
+			write('**  2 - Febre'), nl, 
+			write('**  3 - Perda_de_peso'),nl,
+			write('**  4 - Mal_estar'), nl,
+			write('**  5 - Fadiga'), nl,
+			write('**  6 - Falta_de_ar'), nl,
+			write('**  7 - Dor_no_peito'), nl,
+			write('**  8 - Disturbios_pulmonares'), nl,
+			write('**  9 - Palpitacoes'), nl,
+			write('**  10 - Desmaio'), nl,
+			write('**  11 - Dor_abdominal'), nl,
+			write('**  12 - Vomito'), nl,
+			write('**  13 - Diarreia'), nl,
+			write('**  14 - Constipacao'), nl,
+			write('**  15 - Dor_de_cabeca'), nl,
+			write('**  16 - Fraqueza'), nl,
+			write('**  17 - Ansiedade'), nl,
+            write('**  18 - Dificuldade_para_dormir'), nl,
+            write('**  19 - Hemorragia'), nl,
+            write('**  20 - Perda_de_paladar'), nl,
+            write('**  21 - Rotura_muscular'), nl,nl,
+			read(A5),
+			(
+			(A5 == 1), assert(fact(tosse)), resultado;
+            (A5 == 2), assert(fact(febre)), resultado;
+            (A5 == 3), assert(fact(perda_de_peso)), resultado;
+            (A5 == 4), assert(fact(mal_estar)), resultado;
+            (A5 == 5), assert(fact(fadiga)), resultado;
+            (A5 == 6), assert(fact(falta_de_ar)), resultado;
+            (A5 == 7), assert(fact(dor_no_peito)), resultado;
+            (A5 == 8), assert(fact(disturbios_pulmonares)), resultado;
+            (A5 == 9), assert(fact(palpitacoes)), resultado;
+            (A5 == 10), assert(fact(desmaio)), resultado;
+            (A5 == 11), assert(fact(dor_abdominal)), resultado;
+            (A5 == 12), assert(fact(vomito)), resultado;
+            (A5 == 13), assert(fact(diarreia)), resultado;
+            (A5 == 14), assert(fact(constipacao)), resultado;
+            (A5 == 15), assert(fact(dor_de_cabeca)), resultado;
+			(A5 == 16), assert(fact(fraqueza)), resultado;
+	        (A5 == 17), assert(fact(ansiedade)), resultado;
+            (A5 == 18), assert(fact(dificuldade_para_dormir)), resultado;
+            (A5 == 19), assert(fact(hemorragia)), resultado;
+            (A5 == 20), assert(fact(perda_de_paladar)), resultado;
+            (A5 == 21), assert(fact(rotura_muscular)), resultado).
 
 
-% Predicado para responder à consulta do usuário
-responder_consulta(Sintoma) :-
-    (tratamento(Sintoma, Tratamentos) ->
-        % Extrai apenas os nomes dos tratamentos
-        extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
-        % Apresenta apenas o primeiro nome de tratamento
-        nth0(0, NomesTratamentos, PrimeiroTratamento),
-        write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
-        % Obtém a dosagem ou recomendação de uso do tratamento
-        obter_dosagem(PrimeiroTratamento, Dosagem), nl,
-        %write('Dosagem/recomendação de uso: '), write(Dosagem), nl,
-        write('Voce esta ok com este tratamento? (sim/nao)'), nl,
-        read(RespostaTratamento),
-        % Se o cliente não estiver satisfeito, apresenta os nomes dos tratamentos adicionais
-        (RespostaTratamento == sim ->
-            write('Otimo! Espero que melhore em breve.'), nl;
-            apresentar_proximas_alternativas(NomesTratamentos, 1)
-        )
-    ;
-        write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl).
+          
 
-% Predicado para obter a dosagem ou recomendação de uso do tratamento
-obter_dosagem(Tratamento, Dosagem) :-
-    % Verifica se há uma dosagem associada ao tratamento
-    dosagem(Tratamento, Dosagem),
-    print(Dosagem).
-% Se não houver dosagem associada, retorna uma mensagem padrão
-%obter_dosagem(_, 'Não há dosagem/recomendação específica para este tratamento.').
+			
+resultado :- 	write('********************************************************************************************************'), nl,
+				write('**                                                                                                    **'), nl,			 
+				write('**                                         Resultado Obtido                                           **'), nl, 
+				write('**                                                                                                    **'), nl,			 
+				write('********************************************************************************************************'),
+				result.
 
+resultadowrite(P):-	variavel(A4),nl,
+					write('     O seu perfil e o'),nl,
+					write('     *** '),write(P),write(' ***'),nl,nl,
+					write('     Tratamento Aconselhado: '),perfil(P,A4),nl,nl,
+					write('********************************************************************************************************'),
+					retract(variavel(A4)), retractall(fact(_)).
 
-% Predicado para extrair apenas os nomes dos tratamentos
-extrair_nomes_tratamentos([], []).
-extrair_nomes_tratamentos([Tratamento|Resto], [Nome|NomesRestantes]) :-
-    functor(Tratamento, Nome, _),
-    extrair_nomes_tratamentos(Resto, NomesRestantes).
-
-% Predicado para apresentar as próximas alternativas de tratamento
-apresentar_proximas_alternativas(NomesTratamentos, N) :-
-    length(NomesTratamentos, Length),
-    (N < Length ->
-        nth0(N, NomesTratamentos, Alternativa),
-        write('Voce gostaria de considerar outra alternativa de tratamento? (sim/nao)'), nl,
-        read(Resposta),
-        (Resposta == sim ->
-            write('Tratamento alternativo '), write(N), write(': '), write(Alternativa), nl,
-            responder_alternativa(Alternativa, NomesTratamentos, N)
-        ;
-            write('Obrigado por usar a interface. Adeus!'), nl
-        )
-    ;
-        write('Nao há mais alternativas de tratamento disponíveis.'), nl
-    ).
-
-% Predicado para tratar a resposta do cliente
-responder_alternativa(Alternativa, NomesTratamentos, N) :-
-    write('Voce esta ok com este tratamento? (sim/nao)'), nl,
-    read(RespostaTratamento),
-    (RespostaTratamento == sim ->
-        write('Otimo! Espero que melhore em breve.'), nl;
-        N1 is N + 1,
-        apresentar_proximas_alternativas(NomesTratamentos, N1)
-    ).
-
-
-% Predicado principal para interação com o utilizador
-interface :-
-    write('Bem-vindo a interface de recomendacao medica.'), nl,
-    % Pergunta sobre sintoma
-    write('Por favor, insira o sintoma que voce esta a sentir : '), nl,
-    read(Sintoma),
-    % Pergunta sobre alergias
-    write('Voce tem alguma alergia? (sim/nao)'), nl,
-    read(Alergias),
-    % Pergunta sobre idade
-    write('Qual e a sua idade? '), nl,
-    read(Idade),
-    % Pergunta sobre sexo
-    write('Qual e o seu sexo? (masculino/feminino)'), nl,
-    read(Sexo),
-    % Verifica se é mulher para perguntar sobre gravidez
-    (Sexo == feminino ->
-        write('Voce esta gravida? (sim/nao)'), nl,
-        read(Gravidez);
-        Gravidez = nao
-    ),
-    % Pergunta sobre doenças crônicas
-    write('Voce tem alguma doenca cronica? (sim/nao)'), nl,
-    read(DoencaCronica),
-    % Verifica as informações para ajustar a consulta
-    ajustar_consulta(Sintoma, Alergias, Idade, Sexo, Gravidez, DoencaCronica).
-
-% Predicado para ajustar a consulta com base nas informações pessoais
-ajustar_consulta(Sintoma, Alergias, Idade, Sexo, Gravidez, DoencaCronica) :-
-    % Verifica se o sintoma é reconhecido na base de dados
-    (tratamento(Sintoma, Tratamentos) ->
-        % Extrai apenas os nomes dos tratamentos
-        extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
-        % Apresenta apenas o primeiro nome de tratamento
-        nth0(0, NomesTratamentos, PrimeiroTratamento),
-        %write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
-        % Verifica se há restrições de tratamento com base nas informações pessoais
-        verificar_restricoes_tratamento(PrimeiroTratamento, Alergias, Idade, Sexo, Gravidez, DoencaCronica),
-        % Pergunta se deseja fazer outra consulta
-        responder_consulta(Sintoma),
-        nl,
-        write('Deseja fazer outra consulta? (sim/nao)'), nl,
-        read(Resposta),
-        (Resposta == sim -> interface(); write('Obrigado por usar a interface. Adeus!'))
-    ;
-        write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl,
-        % Pergunta se deseja fazer outra consulta
-        write('Deseja fazer outra consulta? (sim/nao)'), nl,
-        read(Resposta),
-        (Resposta == sim -> interface(); write('Obrigado por usar a interface. Adeus!'))
-    ).
-
-% Predicado para extrair apenas os nomes dos tratamentos
-extrair_nomes_tratamentos([], []).
-extrair_nomes_tratamentos([Tratamento|Resto], [Nome|NomesRestantes]) :-
-    functor(Tratamento, Nome, _),
-    extrair_nomes_tratamentos(Resto, NomesRestantes).
-
-% Predicado para verificar se há restrições de tratamento com base nas informações pessoais
-verificar_restricoes_tratamento(Tratamento, Alergias, Idade, Sexo, Gravidez, DoencaCronica) :-
-    % Implemente aqui a lógica para verificar restrições de tratamento com base nas informações pessoais.
-    % Por exemplo, se o paciente for alérgico a algum componente do tratamento, se estiver grávida, etc.
-    % Você pode usar as informações fornecidas para adaptar o tratamento sugerido conforme necessário.
-    % Esta é apenas uma estrutura básica para ilustrar como você pode adicionar essa lógica.
-
-    % Exemplo simples: Se o paciente for alérgico a algum componente do tratamento, exibir uma mensagem.
-    (Alergias == sim ->
-        write('Atencao: Qual  a sua Alergia?'), nl,
-        read(alergia);
-       % Caso contrário, não há restrições adicionais.
-        true
-    ).
-
-% Iniciar a interface quando o arquivo for consultado
-:- initialization(interface).
+:- initialization(menu).                

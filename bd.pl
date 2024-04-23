@@ -3,85 +3,326 @@
 sintoma(tosse).
 sintoma(febre).
 sintoma(perda_de_peso).
-sintoma(dor).
 sintoma(mal_estar).
 sintoma(fadiga).
 sintoma(falta_de_ar).
 sintoma(dor_no_peito).
-sintoma(sibilancia).
-sintoma(hemoptise).
+sintoma(disturbios_pulmonares).
 sintoma(palpitacoes).
 sintoma(desmaio).
-sintoma(edema).
 sintoma(dor_abdominal).
-sintoma(nausea).
 sintoma(vomito).
 sintoma(diarreia).
 sintoma(constipacao).
 sintoma(dor_de_cabeca).
-sintoma(tontura).
 sintoma(fraqueza).
-sintoma(dormencia).
-sintoma(mudancas_na_visao).
-sintoma(erupcao_cutanea).
-sintoma(prurido).
-sintoma(urticaria).
-sintoma(pelos_encravados).
-sintoma(perda_de_cabelo).
 sintoma(ansiedade).
-sintoma(depressao).
-sintoma(mudancas_de_humor).
 sintoma(dificuldade_para_dormir).
-sintoma(confusao).
-sintoma(sangramento).
 sintoma(hemorragia).
-sintoma(linfonodopatia).
-sintoma(perda_de_audicao).
 sintoma(perda_de_paladar).
+sintoma(rotura_muscular).
 
 % Tratamentos 
+%tratamento(sintoma,sexo,doencascronica, gravida, idade, [paracetamol_500, mel, xarope]).
+tratamento(tosse,[paracetamol_500, mel, xarope], 'Masculino','nao','nao','<65 and >=18').
+tratamento(tosse,'Masculino','nao','nao','18<',[mel, xarope]).
+tratamento(tosse,'Masculino','nao','nao','>=65',[mel, xarope]).
+tratamento(tosse,'Masculino','sim','nao','18<',[mel, cha]).
+tratamento(tosse,'Masculino','sim','nao','<65 and >=18',[mel, cha]).
+tratamento(tosse,'Masculino','sim','nao','>=65',[mel, cha]).
+tratamento(tosse,'Feminino','nao','nao','<65 and >=18',[paracetamol_500, mel, xarope]).
+tratamento(tosse,'Feminino','nao','nao','18<',[mel, xarope]).
+tratamento(tosse,'Feminino','nao','nao','>=65',[mel, xarope]).
+tratamento(tosse,'Feminino','sim','nao','18<',[mel, cha]).
+tratamento(tosse,'Feminino','sim','nao','<65 and >=18',[mel, cha]).
+tratamento(tosse,'Feminino','sim','nao','>=65',[mel, cha]).
+tratamento(tosse,'Feminino','sim','sim','18<',[mel, cha]).
+tratamento(tosse,'Feminino','sim','sim','<65 and >=18',[mel, cha]).
+tratamento(tosse,'Feminino','sim','sim','>=65',[mel, cha]).
+tratamento(tosse,'Feminino','nao','sim','18<',[mel, cha]).
+tratamento(tosse,'Feminino','nao','sim','<65 and >=18',[mel, cha]).
+tratamento(tosse,'Feminino','nao','sim','>=65',[mel, cha]).
+tratamento(febre,'Masculino','nao','nao','<65 and >=18',[paracetamol_1000, ibuprofeno_400, repouso]).
+tratamento(febre,'Masculino','nao','nao','18<',[ibuprofeno_200, repouso]).
+tratamento(febre,'Masculino','nao','nao','>=65',[paracetamol_500, ibuprofeno_400, repouso]).
+tratamento(febre,'Masculino','sim','nao','18<',[ibuprofeno_200, repouso]).
+tratamento(febre,'Masculino','sim','nao','<65 and >=18',[paracetamol_500, ibuprofeno_200, repouso]).
+tratamento(febre,'Masculino','sim','nao','>=65',[ibuprofeno_200, repouso]).
+tratamento(febre,'Feminino','nao','nao','<65 and >=18',[paracetamol_1000, ibuprofeno_400, repouso]).
+tratamento(febre,'Feminino','nao','nao','18<',[ibuprofeno_200, repouso]).
+tratamento(febre,'Feminino','nao','nao','>=65',[paracetamol_500, ibuprofeno_400, repouso]).
+tratamento(febre,'Feminino','sim','nao','18<',[ibuprofeno_200, repouso]).
+tratamento(febre,'Feminino','sim','nao','<65 and >=18',[paracetamol_500, ibuprofeno_200, repouso]).
+tratamento(febre,'Feminino','sim','nao','>=65',[ibuprofeno_200, repouso]).
+tratamento(febre,'Feminino','sim','sim','<65 and >=15',[ibuprofeno_200, repouso]).
+tratamento(febre,'Feminino','nao','sim','<65 and >=15',[ibuprofeno_200, repouso]).
+tratamento(perda_de_peso, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, dieta_balanceada, exercicios_fisicos]).
+tratamento(perda_de_peso, 'Masculino','nao','nao','18<', [dieta_balanceada, exercicios_fisicos]).
+tratamento(perda_de_peso, 'Masculino','nao','nao','>=65', [dieta_balanceada, caminhar]).
+tratamento(perda_de_peso, 'Masculino','sim','nao','18<', [dieta_balanceada, exercicios_fisicos_leves]).
+tratamento(perda_de_peso, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, dieta_balanceada, exercicios_fisicos_leves]).
+tratamento(perda_de_peso, 'Masculino','sim','nao','>=65', [dieta_extrema]).
+tratamento(perda_de_peso, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, dieta_balanceada, exercicios_fisicos]).
+tratamento(perda_de_peso, 'Feminino','nao','nao','18<', [dieta_balanceada, exercicios_fisicos]).
+tratamento(perda_de_peso, 'Feminino','nao','nao','>=65', [dieta_balanceada, caminhar]).
+tratamento(perda_de_peso, 'Feminino','sim','nao','18<', [dieta_balanceada, exercicios_leves]).
+tratamento(perda_de_peso, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, dieta_balanceada, exercicios_fisicos_leves]).
+tratamento(perda_de_peso, 'Feminino','sim','nao','>=65', [dieta_extrema]).
+tratamento(perda_de_peso, 'Feminino','nao','sim','<65 and >=15', [avaliacao_medica, dieta_rigorosa, yoga]).
+tratamento(perda_de_peso, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica, dieta_rigorosa]).
+tratamento(mal_estar, 'Masculino','nao','nao','<65 and >=18', [repouso, hidratacao, dieta_normal]).
+tratamento(mal_estar, 'Masculino','nao','nao','18<', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Masculino','nao','nao','>=65', [repouso, hidratacao, dieta_leve, cha]).
+tratamento(mal_estar, 'Masculino','sim','nao','<65 and >=18', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Masculino','sim','nao','18<', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Masculino','sim','nao','>=65', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','nao','nao','<65 and >=18', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','nao','nao','18<', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','nao','nao','>=65', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','sim','nao','<65 and >=18', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','sim','nao','18<', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','sim','nao','>=65', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','sim','sim','<65 and >=15', [repouso, hidratacao, dieta_leve]).
+tratamento(mal_estar, 'Feminino','nao','sim','<65 and >=15', [repouso, hidratacao, dieta_leve]).
+tratamento(fadiga, 'Masculino','nao','nao','<65 and >=18', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Masculino','nao','nao','18<', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Masculino','nao','nao','>=65', [descanso, sono_de_qualidade, sem_atividade_fisica]).
+tratamento(fadiga, 'Masculino','sim','nao','<65 and >=18', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Masculino','sim','nao','18<', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Masculino','sim','nao','>=65', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','nao','nao','<65 and >=18', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','nao','nao','18<', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','nao','nao','>=65', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','sim','nao','<65 and >=18', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','sim','nao','18<', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','sim','nao','>=65', [descanso, sono_de_qualidade, atividade_fisica_leve]).
+tratamento(fadiga, 'Feminino','nao','sim','<65 and >=18', [descanso, sono_de_qualidade, sem_atividade_fisica]).
+tratamento(fadiga, 'Feminino','sim','sim','<65 and >=18', [descanso, sono_de_qualidade, sem_atividade_fisica, poucos_esforcos]).
+tratamento(falta_de_ar, 'Masculino','nao','nao','<65 and >=18', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Masculino','nao','nao','18<', [medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Masculino','nao','nao','>=65', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Masculino','sim','nao','<65 and >=18', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Masculino','sim','nao','18<', [ medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Masculino','sim','nao','>=65', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','nao','nao','<65 and >=18', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','nao','nao','18<', [ medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','nao','nao','>=65', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','sim','nao','<65 and >=18', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','sim','nao','18<', [ medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','sim','nao','>=65', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','sim','sim','<65 and >=15', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(falta_de_ar, 'Feminino','nao','sim','<65 and >=18', [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
+tratamento(dor_no_peito, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Masculino','nao','nao','18<', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Masculino','nao','nao','>=65', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Masculino','sim','nao','18<', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Masculino','sim','nao','>=65', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','nao','nao','18<', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','nao','nao','>=65', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','sim','nao','18<', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','sim','nao','>=65', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','nao','sim','<65 and >=18', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(dor_no_peito, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica, exames_complementares, tratamento_especifico]).
+tratamento(disturbios_pulmonares, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Masculino','nao','nao','18<', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Masculino','nao','nao','>=65', [avaliacao_medica, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Masculino','sim','nao','18<', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Masculino','sim','nao','>=65', [avaliacao_medica, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','nao','nao','18<', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','nao','nao','>=65', [avaliacao_medica, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','sim','nao','18<', [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','sim','nao','>=65', [avaliacao_medica , oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','nao','sim','<65 and >=18', [avaliacao_medica, oxigenoterapia]).
+tratamento(disturbios_pulmonares, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica, oxigenoterapia]).
+tratamento(palpitacoes, 'Masculino','nao','nao','<65 and >=18', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Masculino','nao','nao','18<', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Masculino','nao','nao','>=65', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Masculino','sim','nao','<65 and >=18', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Masculino','sim','nao','18<', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Masculino','sim','nao','>=65', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','nao','nao','<65 and >=18', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','nao','nao','18<', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','nao','nao','>=65', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','sim','nao','<65 and >=18', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','sim','nao','18<', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','sim','nao','>=65', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','nao','sim','<65 and >=18', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(palpitacoes, 'Feminino','sim','sim','<65 and >=18', [avaliacao_cardiologica, repouso, tratamento_especifico]).
+tratamento(desmaio, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, tratamento_especifico]).
+tratamento(desmaio, 'Masculino','nao','nao','18<', [avaliacao_medica, tratamento_especifico]).
+tratamento(desmaio, 'Masculino','nao','nao','>=65', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Masculino','sim','nao','18<', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Masculino','sim','nao','>=65', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','nao','nao','18<', [avaliacao_medica,  tratamento_especifico]).
+tratamento(desmaio, 'Feminino','nao','nao','>=65', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','sim','nao','18<', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','sim','nao','>=65', [avaliacao_medica, monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','nao','sim','<65 and >=18', [avaliacao_medica,monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(desmaio, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica,monitorizacao_cardiaca, tratamento_especifico]).
+tratamento(vomito, 'Masculino','nao','nao','<65 and >=18', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Masculino','nao','nao','18<', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Masculino','nao','nao','>=65', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Masculino','sim','nao','<65 and >=18', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Masculino','sim','nao','18<', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Masculino','sim','nao','>=65', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','nao','nao','<65 and >=18', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','nao','nao','18<', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','nao','nao','>=65', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','sim','nao','<65 and >=18', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','sim','nao','18<', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','sim','nao','>=65', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','sim','sim','<65 and >=18', [hidratacao, repouso, dieta_leve]).
+tratamento(vomito, 'Feminino','nao','sim','<65 and >=18', [hidratacao, repouso, dieta_leve]).
+tratamento(diarreia, 'Masculino','nao','nao','<65 and >=18', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Masculino','nao','nao','18<', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Masculino','nao','nao','>=65', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Masculino','sim','nao','<65 and >=18', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Masculino','sim','nao','18<', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Masculino','sim','nao','>=65', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','nao','nao','<65 and >=18', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','nao','nao','18<', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','nao','nao','>=65', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','sim','nao','<65 and >=18', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','sim','nao','18<', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','sim','nao','>=65', [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
+tratamento(diarreia, 'Feminino','nao','sim','<65 and >=18', [hidratacao, dieta_blanda]).
+tratamento(diarreia, 'Feminino','sim','sim','<65 and >=18', [hidratacao, dieta_blanda]).
+tratamento(constipacao, 'Masculino','nao','nao','<65 and >=18', [hidratacao, paracetamol_1000, ibuprofeno_400]).
+tratamento(constipacao, 'Masculino','nao','nao','18<', [hidratacao, paracetamol_500, ibuprofeno_200]).
+tratamento(constipacao, 'Masculino','nao','nao','>=65', [hidratacao, paracetamol_1000, ibuprofeno_200]).
+tratamento(constipacao, 'Masculino','sim','nao','<65 and >=18', [hidratacao, paracetamol_500, ibuprofeno_400]).
+tratamento(constipacao, 'Masculino','sim','nao','18<', [hidratacao, paracetamol_500]).
+tratamento(constipacao, 'Masculino','sim','nao','>=65', [hidratacao,paracetamol_500, ibuprofeno_200]).
+tratamento(constipacao, 'Feminino','nao','nao','<65 and >=18', [hidratacao,paracetamol_1000, ibuprofeno_400]).
+tratamento(constipacao, 'Feminino','nao','nao','18<', [hidratacao,paracetamol_500, ibuprofeno_200]).
+tratamento(constipacao, 'Feminino','nao','nao','>=65', [hidratacao,paracetamol_1000, ibuprofeno_200]).
+tratamento(constipacao, 'Feminino','sim','nao','<65 and >=18', [hidratacao, paracetamol_500, ibuprofeno_400]).
+tratamento(constipacao, 'Feminino','sim','nao','18<', [hidratacao, paracetamol_500]).
+tratamento(constipacao, 'Feminino','sim','nao','>=65', [hidratacao, paracetamol_500, ibuprofeno_200]).
+tratamento(constipacao, 'Feminino','sim','sim','<65 and >=18', [hidratacao, paracetamol_500]).
+tratamento(constipacao, 'Feminino','nao','sim','<65 and >=18', [hidratacao, paracetamol_1000]).
+tratamento(dor_de_cabeca, 'Masculino','nao','nao','<65 and >=18', [ibuprofeno_400, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Masculino','nao','nao','18<', [ibuprofeno_200, paracetamol_500, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Masculino','nao','nao','>=65', [ibuprofeno_200, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Masculino','sim','nao','<65 and >=18', [ibuprofeno_200, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Masculino','sim','nao','18<', [paracetamol_500, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Masculino','sim','nao','>=65', [ibuprofeno_200, paracetamol_500, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','nao','nao','<65 and >=18', [ibuprofeno_400, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','nao','nao','18<', [ibuprofeno_200, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','nao','nao','>=65', [ibuprofeno_200, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','sim','nao','<65 and >=18', [ibuprofeno_200, paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','sim','nao','18<', [ paracetamol_500, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','sim','nao','>=65', [ibuprofeno_200, paracetamol_500, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','sim','sim','<65 and >=18', [paracetamol_500, repouso, alimentacao_saudavel]).
+tratamento(dor_de_cabeca, 'Feminino','nao','sim','<65 and >=18', [ paracetamol_1000, repouso, alimentacao_saudavel]).
+tratamento(fraqueza, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, exames_complementares, atividade_fisica, consumo_vitaminas]).
+tratamento(fraqueza, 'Masculino','nao','nao','18<', [avaliacao_medica, atividade_fisica, consumo_vitaminas]).
+tratamento(fraqueza, 'Masculino','nao','nao','>=65', [avaliacao_medica, exames_complementares, consumo_vitaminas]).
+tratamento(fraqueza, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, exames_complementares, atividade_fisica, consumo_vitaminas]).
+tratamento(fraqueza, 'Masculino','sim','nao','18<', [avaliacao_medica, consumo_vitaminas]).
+tratamento(fraqueza, 'Masculino','sim','nao','>=65', [avaliacao_medica, exames_complementares, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, exames_complementares, atividade_fisica, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','nao','nao','18<', [avaliacao_medica, atividade_fisica, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','nao','nao','>=65', [avaliacao_medica, exames_complementares, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, exames_complementares, atividade_fisica, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','sim','nao','18<', [avaliacao_medica, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','sim','nao','>=65', [avaliacao_medica, exames_complementares, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','nao','sim','<65 and >=18', [avaliacao_medica, exames_complementares, yoga, consumo_vitaminas]).
+tratamento(fraqueza, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica, consumo_vitaminas]).
+tratamento(ansiedade, 'Masculino','nao','nao','<65 and >=18', [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes, atividade_fisica]).
+tratamento(ansiedade, 'Masculino','nao','nao','18<', [psicoterapia, atividades_relaxantes, atividade_fisica]).
+tratamento(ansiedade, 'Masculino','nao','nao','>=65', [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes]).
+tratamento(ansiedade, 'Masculino','sim','nao','<65 and >=18', [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes]).
+tratamento(ansiedade, 'Masculino','sim','nao','18<', [psicoterapia, atividades_relaxantes]).
+tratamento(ansiedade, 'Masculino','sim','nao','>=65', [psicoterapia, medicamentos_ansioliticos]).
+tratamento(ansiedade, 'Feminino','nao','nao','<65 and >=18', [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes, atividade_fisica]).
+tratamento(ansiedade, 'Feminino','nao','nao','18<', [psicoterapia, atividades_relaxantes, pratica_desporto]).
+tratamento(ansiedade, 'Feminino','nao','nao','>=65', [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes]).
+tratamento(ansiedade, 'Feminino','sim','nao','<65 and >=18', [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes]).
+tratamento(ansiedade, 'Feminino','sim','nao','18<', [psicoterapia, atividades_relaxantes, atividade_fisica_leve]).
+tratamento(ansiedade, 'Feminino','sim','nao','>=65', [psicoterapia, medicamentos_ansioliticos]).
+tratamento(ansiedade, 'Feminino','sim','sim','<65 and >=18', [psicoterapia]).
+tratamento(ansiedade, 'Feminino','nao','sim','<65 and >=18', [psicoterapia, atividades_relaxantes, atividade_fisica_leve]).
+tratamento(dificuldade_para_dormir, 'Masculino','nao','nao','<65 and >=18', [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Masculino','nao','nao','18<', [higiene_do_sono, terapia_cognitivo_comportamental]).
+tratamento(dificuldade_para_dormir, 'Masculino','nao','nao','>=65', [higiene_do_sono, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Masculino','sim','nao','<65 and >=18', [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Masculino','sim','nao','18<', [higiene_do_sono, terapia_cognitivo_comportamental]).
+tratamento(dificuldade_para_dormir, 'Masculino','sim','nao','>=65', [higiene_do_sono,  medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Feminino','nao','nao','<65 and >=18', [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Feminino','nao','nao','18<', [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Feminino','nao','nao','>=65', [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Feminino','sim','nao','<65 and >=18', [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Feminino','sim','nao','18<', [higiene_do_sono, terapia_cognitivo_comportamental]).
+tratamento(dificuldade_para_dormir, 'Feminino','sim','nao','>=65', [higiene_do_sono, medicamentos_sedativos]).
+tratamento(dificuldade_para_dormir, 'Feminino','sim','sim','<65 and >=18', [higiene_do_sono, terapia_cognitivo_comportamental]).
+tratamento(dificuldade_para_dormir, 'Feminino','nao','sim','<65 and >=18', [higiene_do_sono, terapia_cognitivo_comportamental]).
+tratamento(hemorragia, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Masculino','nao','nao','18<', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Masculino','nao','nao','>=65', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Masculino','sim','nao','18<', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Masculino','sim','nao','>=65', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','nao','nao','18<', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','nao','nao','>=65', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','sim','nao','18<', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','sim','nao','>=65', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(hemorragia, 'Feminino','nao','sim','<65 and >=18', [avaliacao_medica, controlo_da_hemorragia, transfusao_de_sangue]).
+tratamento(perda_de_audicao, 'Masculino','nao','nao','<65 and >=18', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Masculino','nao','nao','18<', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Masculino','nao','nao','>=65', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Masculino','sim','nao','<65 and >=18', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Masculino','sim','nao','18<', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Masculino','sim','nao','>=65', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','nao','nao','<65 and >=18', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','nao','nao','18<', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','nao','nao','>=65', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','sim','nao','<65 and >=18', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','sim','nao','18<', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','sim','nao','>=65', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','sim','sim','<65 and >=18', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_audicao, 'Feminino','nao','sim','<65 and >=18', [avaliacao_otorrinolaringologica, exames_audiologicos]).
+tratamento(perda_de_paladar, 'Masculino','nao','nao','<65 and >=18', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Masculino','nao','nao','18<', [avaliacao_medica, mel, cha]).
+tratamento(perda_de_paladar, 'Masculino','nao','nao','>=65', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Masculino','sim','nao','<65 and >=18', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Masculino','sim','nao','18<', [avaliacao_medica, mel, cha]).
+tratamento(perda_de_paladar, 'Masculino','sim','nao','>=65', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','nao','nao','<65 and >=18', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','nao','nao','18<', [avaliacao_medica, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','nao','nao','>=65', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','sim','nao','<65 and >=18', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','sim','nao','18<', [avaliacao_medica, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','sim','nao','>=65', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','sim','sim','<65 and >=18', [avaliacao_medica, mel, cha]).
+tratamento(perda_de_paladar, 'Feminino','nao','sim','<65 and >=18', [avaliacao_medica, exames_complementares, mel, cha]).
+tratamento(rotura_muscular, 'Masculino','nao','nao','<65 and >=18', [sessao_fisioterapia, avaliacao_medica, ginasio, repouso]).
+tratamento(rotura_muscular, 'Masculino','nao','nao','18<', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Masculino','nao','nao','>=65', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Masculino','sim','nao','<65 and >=18', [sessao_fisioterapia, avaliacao_medica, ginasio, repouso]).
+tratamento(rotura_muscular, 'Masculino','sim','nao','>=65', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Feminino','nao','nao','<65 and >=18', [sessao_fisioterapia, avaliacao_medica, ginasio, repouso]).
+tratamento(rotura_muscular, 'Feminino','nao','nao','18<', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Feminino','nao','nao','>=65', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Feminino','sim','nao','18<', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Feminino','sim','nao','<65 and >=18', [sessao_fisioterapia, avaliacao_medica, ginasio, repouso]).
+tratamento(rotura_muscular, 'Feminino','sim','nao','>=65', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Feminino','nao','sim','<65 and >=18', [sessao_fisioterapia, avaliacao_medica, repouso]).
+tratamento(rotura_muscular, 'Feminino','sim','sim','<65 and >=18', [sessao_fisioterapia, avaliacao_medica, repouso]).
 
-tratamento(tosse, [paracetamol_500, mel, xarope]).
-tratamento(febre, [paracetamol_1000, ibuprofeno_400, repouso]).
-tratamento(perda_de_peso, [avaliacao_medica, dieta_balanceada, exercicios_fisicos]).
-tratamento(dor, [analgesico, anti_inflamatorio, repouso]).
-tratamento(mal_estar, [repouso, hidratacao, dieta_leve]).
-tratamento(fadiga, [descanso, sono_de_qualidade, atividade_fisica_leve]).
-tratamento(falta_de_ar, [oxigenoterapia, medicamentos_broncodilatadores, repouso]).
-tratamento(dor_no_peito, [avaliacao_medica, exames_complementares, tratamento_especifico]).
-tratamento(sibilancia, [avaliacao_medica, tratamento_para_asma, oxigenoterapia]).
-tratamento(hemoptise, [avaliacao_medica, repouso, tratamento_especifico]).
-tratamento(palpitacoes, [avaliacao_cardiologica, repouso, tratamento_especifico]).
-tratamento(desmaio, [avaliacao_medica, monitoramento_cardiaco, tratamento_especifico]).
-tratamento(edema, [avaliacao_medica, tratamento_da_causa_subjacente, repouso]).
-tratamento(dor_abdominal, [avaliacao_medica, exames_complementares, tratamento_especifico]).
-tratamento(nausea, [hidratacao, dieta_blanda, antiemetico]).
-tratamento(vomito, [hidratacao, repouso, dieta_leve]).
-tratamento(diarreia, [hidratacao, dieta_blanda, medicamentos_antidiarreicos]).
-tratamento(constipacao, [hidratacao, aumento_da_fibra_na_dieta, laxantes]).
-tratamento(dor_de_cabeca, [analgesico, repouso, medicamentos_para_enxaqueca]).
-tratamento(tontura, [avaliacao_medica, repouso, tratamento_especifico]).
-tratamento(fraqueza, [avaliacao_medica, exames_complementares, tratamento_especifico]).
-tratamento(dormencia, [avaliacao_medica, exames_neurologicos, tratamento_especifico]).
-tratamento(mudancas_na_visao, [consulta_oftalmologica, exames_de_visao, tratamento_especifico]).
-tratamento(erupcao_cutanea, [avaliacao_dermatologica, tratamento_topico, medicamentos_orais]).
-tratamento(prurido, [hidratacao_da_pele, antipruriginoso_topico, medicamentos_antialergicos]).
-tratamento(urticaria, [antihistaminicos, corticosteroides, repouso]).
-tratamento(pelos_encravados, [esfoliacao, compressas_quentes, evitar_raspar]).
-tratamento(perda_de_cabelo, [avaliacao_medica, tratamento_capilar, cuidados_com_os_cabelos]).
-tratamento(ansiedade, [psicoterapia, medicamentos_ansioliticos, atividades_relaxantes]).
-tratamento(depressao, [psicoterapia, antidepressivos, apoio_psicossocial]).
-tratamento(mudancas_de_humor, [avaliacao_medica, psicoterapia, medicamentos_estabilizadores_de_humor]).
-tratamento(dificuldade_para_dormir, [higiene_do_sono, terapia_cognitivo_comportamental, medicamentos_sedativos]).
-tratamento(confusao, [avaliacao_medica, exames_complementares, tratamento_especifico]).
-tratamento(sangramento, [avaliacao_medica, controle_da_hemorragia, transfusao_de_sangue]).
-tratamento(hemorragia, [avaliacao_medica, controle_da_hemorragia, transfusao_de_sangue]).
-tratamento(linfonodopatia, [avaliacao_medica, exames_complementares, tratamento_especifico]).
-tratamento(perda_de_audicao, [avaliacao_otorrinolaringologica, exames_audiologicos, tratamento_especifico]).
-tratamento(perda_de_paladar, [avaliacao_medica, exames_complementares, tratamento_especifico]).
-
-% Doses
-
+%doses
 dosagem(paracetamol_500, 'Tomar 1 comprimido de 500mg a cada 6 horas').
 dosagem(paracetamol_1000, 'Tomar 1 comprimido de 1000mg a cada 8 horas').
 dosagem(ibuprofeno_400, 'Tomar 1 comprimido de 400mg a cada 8 horas').
