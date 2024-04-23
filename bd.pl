@@ -23,7 +23,7 @@ sintoma(perda_de_paladar).
 sintoma(rotura_muscular).
 
 % Tratamentos 
-%tratamento(sintoma,sexo,doencascronica, gravida, idade, [paracetamol_500, mel, xarope]).
+%tratamento(sintoma,sexo,doencascronica, gravidez, idade, [paracetamol_500, mel, xarope]).
 tratamento(tosse,[paracetamol_500, mel, xarope], 'Masculino','nao','nao','<65 and >=18').
 tratamento(tosse,'Masculino','nao','nao','18<',[mel, xarope]).
 tratamento(tosse,'Masculino','nao','nao','>=65',[mel, xarope]).
