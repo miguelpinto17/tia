@@ -1,9 +1,23 @@
 % Definição dos perfis
-if gravida and dor_cronica then tosse
-if gravida and dor_cronica then fraqueza
-if 'idade_0_18' then jovem.
-if 'idade_19_64' then adulto.
-if 'idade_64_100' then idoso.
+if tosse and febre and idoso them paracetamol_500
+if perda_de_peso then avaliacao_medica
+if dor and gravidez then repouso and paracetamol_500
+if dor and not gravidez then repouso and paracetamol
+if falta_de_ar and idoso then oxigenoterapia
+if falta_de_ar and not idoso then avaliacao_medica
+if mal_estar and jovem then repouso and dietaleve
+if fadiga and idoso then repouso and avaliacao_medica
+if dor_no_peito and idoso then avaliacao_medica_urgente
+if palpitacoes then avaliacao_cardiologica
+if desmaio then avaliacao_medica_urgente
+if dor_abdominal then avaliacao_medica_urgente
+if diarreia and persistente then avaliacao_medica
+if constipacao and persistente then aumento_da_fibra_na_dieta and laxantes
+if fraqueza and persistente then avaliacao_medica
+if ansiedade and persistente then psicoterapia and medicamentos_ansioliticos
+if dificuldade_para_dormir and persistente then higiene_do_sono and medicamentos_sedativos
+if hemorragia and persistente then avaliacao_medica_urgente
+if perda_de_paladar and persistente then avaliacao_medica
 
 perfil(1, Genero, Doenca_cronica, Idade, Z) :- 
     procurar_tratamento(tosse,masculino,sim, jovem, Z).
