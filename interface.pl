@@ -68,18 +68,20 @@ questao4:-
     write('** Qual e a sua idade?'), nl,
     write('**'), nl,
     write('**  1 - 0-16'), nl, 
-    write('**  2 - 17-64' ), nl,
-    write('**  3 - 65-100' ), nl, nl,
+    write('**  2 - 17-35' ), nl,
+    write('**  3 - 36-64' ), nl,
+    write('**  4 - 65-100' ), nl, nl,
     read(A4), nl,
     (
         (A4 == 1), assert(fact(jovem)),questao5; 
         (A4 == 2), assert(fact(adulto)),questao5;
-        (A4 == 3), assert(fact(idoso)),questao5
+        (A4 == 3), assert(fact(jovemadulto)),questao5;
+        (A4 == 4), assert(fact(idoso)),questao5
     ).
 
 questao5:- 
     write('********************************************************************************************************'), nl,
-    write('**  Qual o seu genero favorito? Destas opcoes, introduza o numero correspondente:'), nl,
+    write('** Destas opcoes, introduza o numero correspondente ao que sente:'), nl,
     write('**'), nl,
     write('**  1 - Tosse'), nl,
     write('**  2 - Febre'), nl, 
