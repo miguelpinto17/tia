@@ -70,24 +70,40 @@ rotura_muscular :- perfil(39,_).
 
 
 
-get_tratamentos([], []).
-get_tratamentos([(Sintoma, Sexo, DoencaCronica, Gravidez, Idade)|Resto], Tratamentos) :-
-    (
-        % Consultar a base de conhecimento para obter o tratamento correspondente ao sintoma e perfil do paciente
-        tratamento(Sintoma, Sexo, DoencaCronica, Gravidez, Idade, Tratamento),
-        % Adicionar o tratamento encontrado à lista de tratamentos
-        append([(Sintoma, Tratamento)], TratamentosAtuais, Tratamentos)
+% Predicado para responder à consulta do usuário
+responder_consulta(Sintoma) :-
+    (tratamento(Sintoma, Tratamentos) ->
+        % Extrai apenas os nomes dos tratamentos
+        extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
+        % Apresenta apenas o primeiro nome de tratamento
+        nth0(0, NomesTratamentos, PrimeiroTratamento),
+        write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
+        % Obtém a dosagem ou recomendação de uso do tratamento
+        obter_dosagem(PrimeiroTratamento, Dosagem),
+        write('Dosagem/recomendação de uso: '), write(Dosagem), nl,
+        write('Voce esta ok com este tratamento? (sim/nao)'), nl,
+        read(RespostaTratamento),
+        % Se o cliente não estiver satisfeito, apresenta os nomes dos tratamentos adicionais
+        (RespostaTratamento == sim ->
+            write('Otimo! Espero que melhore em breve.'), nl;
+            apresentar_proximas_alternativas(NomesTratamentos, 1)
+        )
     ;
-        % Se não houver tratamento definido para o sintoma e perfil do paciente, continuar com a próxima doença
-        TratamentosAtuais = Tratamentos
-    ),
-    % Chamar recursivamente para o restante da lista de doenças
-    get_tratamentos(Resto, TratamentosAtuais).
-
-% Predicado para apresentar os resultados
-apresentar_resultados([]).
-apresentar_resultados([(Sintoma, Tratamento)|Resto]):-
-    write('Para o sintoma '), write(Sintoma), write(' o tratamento recomendado é '), write(Tratamento), nl,
-    apresentar_resultados(Resto).
+        write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl).
 
 
+% Predicado para obter os tratamentos para um sintoma
+obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento) :-
+    tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento).
+
+% Predicado para mostrar os tratamentos para o sintoma selecionado
+mostrar_tratamentos(Sintoma) :-
+    write('Tratamentos disponíveis para '), write(Sintoma), write(':'), nl,
+    obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento),
+    mostrar_lista_tratamentos(Tratamento).
+
+% Predicado auxiliar para mostrar uma lista de tratamentos
+mostrar_lista_tratamentos([]).
+mostrar_lista_tratamentos([Tratamento|Resto]) :-
+    write('- '), write(Tratamento), nl,
+    mostrar_lista_tratamentos(Resto).

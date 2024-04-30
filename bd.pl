@@ -395,3 +395,4 @@ recomendacao(limpeza_da_pele, 'Manter a pele limpa e hidratada pode prevenir acn
 recomendacao(exames_preventivos, 'Realizar exames de rotina periodicamente pode detectar doenças precocemente e prevenir complicações').
 recomendacao(relaxamento_mental, 'Praticar técnicas de relaxamento mental, como a meditação, pode reduzir a ansiedade e o estresse').
 recomendacao(pratica_de_hobbies, 'Dedicar tempo a atividades que trazem prazer e relaxamento pode melhorar o bem-estar emocional').
+
