@@ -1,8 +1,7 @@
 :-dynamic(fact/1).
+%[forward, bd, proof, base_conhecimento].
 
-:- consult('forward.pl'). % Importando o arquivo forward.pl para usar suas definições de operadores e regras de encadeamento forward.
 
-:- dynamic(sexo/1, gravida/1, doenca_cronica/1, idade/1, sintoma/1).
 
 menu:- 
     nl, nl,
@@ -36,8 +35,8 @@ questao1:-
     write('**  2 - Feminino'), nl, nl,
     read(A1),
     (
-        (A1 == 1),assert(fact(Masculino)), questao3;
-        (A1 == 2),assert(fact(Feminino)),  questao2
+        (A1 == 1),Genero=masculino, questao3;
+        (A1 == 2),Genero=feminino,  questao2
     ).
 
 questao2:- 
@@ -48,7 +47,7 @@ questao2:-
     write('**  2 - Nao'), nl, nl,
     read(A2),
     (
-        (A2 == 1),assert(fact(Gravidez)), questao3;
+        (A2 == 1),Gravidez=sim, questao3;
         (A2 == 2),  questao3
     ).
     
@@ -69,7 +68,7 @@ questao4:-
     write('** Qual e a sua idade?'), nl,
     write('**'), nl,
     write('**  1 - 0-16'), nl, 
-    write('**  2 - 17-64' ), nl, nl,
+    write('**  2 - 17-64' ), nl,
     write('**  3 - 65-100' ), nl, nl,
     read(A4), nl,
     (
@@ -128,20 +127,20 @@ questao5:-
         (A5 == 21), assert(fact(rotura_muscular)), resultado
     ).
 
-resultado :- 
-    write('********************************************************************************************************'), nl,
-    write('**                                                                                                    **'), nl,             
-    write('**                                         Resultado Obtido                                           **'), nl, 
-    write('**                                                                                                    **'), nl,             
-    write('********************************************************************************************************'),
-    result.
-
-resultadowrite(P):-   
-    variavel(A4), nl,
-    write('     O seu perfil e o'), nl,
-    write('     *** '), write(P), write(' ***'), nl, nl,
-    write('     Tratamento Aconselhado: '), perfil(P,A4), nl, nl,
-    write('********************************************************************************************************'),
-    retract(variavel(A4)), retractall(fact(_)).
-
-:- initialization(menu).
+    resultado :-
+        write('********************************************************************************************************'), nl,
+        write('**                                                                                                    **'), nl,             
+        write('**                                     Tratamentos Disponíveis                                      **'), nl, 
+        write('**                                                                                                    **'), nl,             
+        write(tratamento), nl,
+        tratamento.
+    
+    tratamento :-
+        variavel(A4),
+        write('     Os tratamentos disponíveis para o sintoma selecionado são:'), nl,
+        write('     '), perfil(P, Genero, Gravidez), write(P), nl, nl,
+        write('********************************************************************************************************'), nl,
+        retract(variavel(A4)),
+        retractall(fact(_)).
+    
+    :- initialization(menu).

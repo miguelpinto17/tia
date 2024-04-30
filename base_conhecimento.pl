@@ -1,12 +1,14 @@
 % Definição dos perfis
-perfil(1, Z) :- 
-    procurar_tratamento(tosse, Z).
+if gravida and dor_cronica then tosse
+if gravida and dor_cronica then fraqueza
+
+
+perfil(1, Genero, Doenca_cronica, Idade, Z) :- 
+    procurar_tratamento(tosse,masculino,sim, jovem, Z).
 perfil(2, Z) :- 
     procurar_tratamento(febre, Z).
 perfil(3, Z) :- 
     procurar_tratamento(perda_de_peso, Z).
-perfil(4, Z) :- 
-    procurar_tratamento(dor, Z).
 perfil(5, Z) :- 
     procurar_tratamento(mal_estar, Z).
 perfil(6, Z) :-
@@ -15,20 +17,10 @@ perfil(7, Z) :-
     procurar_tratamento(falta_de_ar, Z).
 perfil(8, Z) :- 
     procurar_tratamento(dor_no_peito, Z).
-perfil(9, Z) :- 
-    procurar_tratamento(sibilancia, Z).
-perfil(10, Z) :- 
-    procurar_tratamento(hemoptise, Z).
-perfil(11, Z) :- 
-    procurar_tratamento(palpitacoes, Z).
 perfil(12, Z) :- 
     procurar_tratamento(desmaio, Z).
-perfil(13, Z) :- 
-    procurar_tratamento(edema, Z).
 perfil(14, Z) :- 
     procurar_tratamento(dor_abdominal, Z).
-perfil(15, Z) :- 
-    procurar_tratamento(nausea, Z).
 perfil(16, Z) :- 
     procurar_tratamento(vomito, Z).
 perfil(17, Z) :- 
@@ -37,44 +29,18 @@ perfil(18, Z) :-
     procurar_tratamento(constipacao, Z).
 perfil(19, Z) :- 
     procurar_tratamento(dor_de_cabeca, Z).
-perfil(20, Z) :- 
-    procurar_tratamento(tontura, Z).
 perfil(21, Z) :- 
     procurar_tratamento(fraqueza, Z).
-perfil(22, Z) :- 
-    procurar_tratamento(dormencia, Z).
-perfil(23, Z) :- 
-    procurar_tratamento(mudancas_na_visao, Z).
-perfil(24, Z) :- 
-    procurar_tratamento(erupcao_cutanea, Z).
-perfil(25, Z) :- 
-    procurar_tratamento(prurido, Z).
-perfil(26, Z) :- 
-    procurar_tratamento(urticaria, Z).
-perfil(27, Z) :- 
-    procurar_tratamento(pelos_encravados, Z).
-perfil(28, Z) :- 
-    procurar_tratamento(perda_de_cabelo, Z).
 perfil(29, Z) :- 
     procurar_tratamento(ansiedade, Z).
-perfil(30, Z) :- 
-    procurar_tratamento(depressao, Z).
-perfil(31, Z) :- 
-    procurar_tratamento(mudancas_de_humor, Z).
 perfil(32, Z) :- 
     procurar_tratamento(dificuldade_para_dormir, Z).
-perfil(33, Z) :- 
-    procurar_tratamento(confusao, Z).
-perfil(34, Z) :- 
-    procurar_tratamento(sangramento, Z).
 perfil(35, Z) :- 
     procurar_tratamento(hemorragia, Z).
-perfil(36, Z) :- 
-    procurar_tratamento(linfonodopatia, Z).
-perfil(37, Z) :- 
-    procurar_tratamento(perda_de_audicao, Z).
 perfil(38, Z) :- 
     procurar_tratamento(perda_de_paladar, Z).
+perfil(37, Z) :- 
+    procurar_tratamento(rotura_muscular, Z).
 
 
 % Regras para definir os perfis com base nos sintomas
