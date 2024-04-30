@@ -6,14 +6,14 @@
 menu:- 
     nl, nl,
     write('********************************************************************************************************'), nl,
-    write('           Bem-vindo a interface de recomendacao medica.Diga-nos o seu nome?'), nl,
+    write('           Bem-vindo a interface de recomendacao medica. Como se chama?'), nl,
     read(X), nl,
     write('********************************************************************************************************'), nl, nl,
     write('  Prazer em ajuda-lo/a Sr./a '), write(X), nl, nl, nl,
     write('********************************************************************************************************'), nl,
     write('**                                                                                                    **'), nl,             
     write('**                          Vamos ajuda-lo a descobrir o seu sintoma                       **'), nl,
-    write('**                      Faremos algumas perguntas para o/a ajudar na escolha do seu tratamento!                     **'), nl, 
+    write('**                      Vamos fazer algumas perguntas para o/a ajudar na escolha do seu tratamento!**'), nl, 
     write('**                                                                                                    **'), nl,             
     write('********************************************************************************************************'), nl,
     write('**   Menu:'), nl,
@@ -41,7 +41,7 @@ questao1:-
 
 questao2:- 
     write('********************************************************************************************************'), nl,
-    write('**  Voce esta gravida?'), nl,
+    write('**  Esta gravida?'), nl,
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Nao'), nl, nl,
@@ -53,7 +53,7 @@ questao2:-
     
 questao3:- 
     write('********************************************************************************************************'), nl,
-    write('**  Voce tem alguma doenca cronica?'), nl,
+    write('**  Tem alguma doenca cronica?'), nl,
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Nao'), nl, nl,
