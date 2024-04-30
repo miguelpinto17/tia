@@ -1,7 +1,9 @@
 % Definição dos perfis
 if gravida and dor_cronica then tosse
 if gravida and dor_cronica then fraqueza
-
+if 'idade_0_18' then jovem.
+if 'idade_19_64' then adulto.
+if 'idade_64_100' then idoso.
 
 perfil(1, Genero, Doenca_cronica, Idade, Z) :- 
     procurar_tratamento(tosse,masculino,sim, jovem, Z).
@@ -47,68 +49,45 @@ perfil(37, Z) :-
 tosse :- perfil(1, _).
 febre :- perfil(2, _).
 perda_de_peso :- perfil(3, _).
-dor :- perfil(4, _).
 mal_estar :- perfil(5, _).
 fadiga :- perfil(6, _).
 falta_de_ar :- perfil(7, _).
 dor_no_peito :- perfil(8, _).
-sibilancia :- perfil(9, _).
-hemoptise :- perfil(10, _).
-palpitacoes :- perfil(11, _).
 desmaio :- perfil(12, _).
-edema :- perfil(13, _).
 dor_abdominal :- perfil(14, _).
-nausea :- perfil(15, _).
 vomito :- perfil(16, _).
 diarreia :- perfil(17, _).
 constipacao :- perfil(18, _).
 dor_de_cabeca :- perfil(19, _).
-tontura :- perfil(20, _).
 fraqueza :- perfil(21, _).
-dormencia :- perfil(22, _).
-mudancas_na_visao :- perfil(23, _).
-erupcao_cutanea :- perfil(24, _).
-prurido :- perfil(25, _).
-urticaria :- perfil(26, _).
-pelos_encravados :- perfil(27, _).
-perda_de_cabelo :- perfil(28, _).
 ansiedade :- perfil(29, _).
-depressao :- perfil(30, _).
-mudancas_de_humor :- perfil(31, _).
 dificuldade_para_dormir :- perfil(32, _).
-confusao :- perfil(33, _).
-sangramento :- perfil(34, _).
 hemorragia :- perfil(35, _).
-linfonodopatia :- perfil(36, _).
-perda_de_audicao :- perfil(37, _).
 perda_de_paladar :- perfil(38, _).
+rotura_muscular :- perfil(39,_).
 
 
 
-% Definição dos tratamentos e suas recomendações
-recomendacao(tosse, 'Descanse bastante e beba bastante líquido. Se a tosse persistir, consulte um médico.').
-recomendacao(febre, 'Descanse bastante e beba muitos líquidos. Tome paracetamol para reduzir a febre. Se a febre persistir, consulte um médico.').
 
 
-% Exemplo de definição de dosagem
-dosagem(tosse, 'Tomar 1 comprimido de xarope para tosse a cada 6 horas').
-dosagem(febre, 'Tomar 1 comprimido de paracetamol a cada 4 horas').
+get_tratamentos([], []).
+get_tratamentos([(Sintoma, Sexo, DoencaCronica, Gravidez, Idade)|Resto], Tratamentos) :-
+    (
+        % Consultar a base de conhecimento para obter o tratamento correspondente ao sintoma e perfil do paciente
+        tratamento(Sintoma, Sexo, DoencaCronica, Gravidez, Idade, Tratamento),
+        % Adicionar o tratamento encontrado à lista de tratamentos
+        append([(Sintoma, Tratamento)], TratamentosAtuais, Tratamentos)
+    ;
+        % Se não houver tratamento definido para o sintoma e perfil do paciente, continuar com a próxima doença
+        TratamentosAtuais = Tratamentos
+    ),
+    % Chamar recursivamente para o restante da lista de doenças
+    get_tratamentos(Resto, TratamentosAtuais).
 
-% Predicado para buscar tratamento de acordo com o sintoma
-tratamento(tosse, 'Xarope para Tosse').
-tratamento(febre, 'Paracetamol').
-tratamento(perda_de_peso, 'Consulta médica para avaliação').
+% Predicado para apresentar os resultados
+apresentar_resultados([]).
+apresentar_resultados([(Sintoma, Tratamento)|Resto]):-
+    write('Para o sintoma '), write(Sintoma), write(' o tratamento recomendado é '), write(Tratamento), nl,
+    apresentar_resultados(Resto).
 
 
-
-% Regras para definir os perfis com base nos sintomas
-procurar_tratamento(Sintoma, Tratamento) :-
-    tratamento(Sintoma, Tratamento).
-
-% Predicado para buscar a dosagem do tratamento
-dosagem_tratamento(Tratamento, Dosagem) :-
-    dosagem(Tratamento, Dosagem).
-
-% Predicado para buscar recomendações de acordo com o tratamento
-recomendacoes_tratamento(Tratamento, Recomendacao) :-
-    recomendacao(Tratamento, Recomendacao).
