@@ -84,7 +84,7 @@ questao4:-
     write('**'), nl,
     write('**  1 - 0-16'), nl, 
     write('**  2 - 17-64' ), nl,
-    write('**  4 - 65-100' ), nl, nl,
+    write('**  3 - 65-100' ), nl, nl,
     read(A4), nl,
     (
         (A4 == 1), assert(fact(jovem)), questao5; 
