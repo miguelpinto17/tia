@@ -21,13 +21,13 @@ mostrar_lista_tratamentos([Tratamento|Resto]) :-
 menu:- 
     nl, nl,
     write('********************************************************************************************************'), nl,
-    write('           Bem-vindo à interface de recomendação médica. Como se chama?'), nl,
-    read(X), nl,
+    write('           Bem-vindo a interface de recomendacao medica. Como se chama?'), nl,
+    read(A), nl,
     write('********************************************************************************************************'), nl, nl,
-    write('  Prazer em ajudá-lo/a Sr./a '), write(X), nl, nl, nl,
+    write('  Prazer em ajuda-lo/a Sr./a '), write(A), nl, nl, nl,
     write('********************************************************************************************************'), nl,
     write('**                                                                                                    **'), nl,             
-    write('**                          Vamos ajudá-lo/a a descobrir o seu sintoma                       **'), nl,
+    write('**                          Vamos ajuda-lo/a a descobrir o seu sintoma                       **'), nl,
     write('**                      Vamos fazer algumas perguntas para o/a ajudar na escolha do seu tratamento!**'), nl, 
     write('**                                                                                                    **'), nl,             
     write('********************************************************************************************************'), nl,
@@ -39,12 +39,12 @@ menu:-
     avaliarEscolha(Y).
 
 avaliarEscolha(1):- questao1.
-avaliarEscolha(2):- write('Foi um prazer ajudá-lo!'), nl, nl, halt.
-avaliarEscolha(other):- write('Por favor, introduza uma opção válida e tente novamente.'), nl, nl, menu.
+avaliarEscolha(2):- write('Foi um prazer ajuda-lo!'), nl, nl, halt.
+avaliarEscolha(other):- write('Por favor, introduza uma opcao valida e tente novamente.'), nl, nl, menu.
 
 questao1:- 
     write('********************************************************************************************************'), nl,
-    write('**  Qual é o seu sexo?'), nl,
+    write('**  Qual e o seu sexo?'), nl,
     write('**'), nl,
     write('**  1 - Masculino'), nl,
     write('**  2 - Feminino'), nl, nl,
@@ -56,7 +56,7 @@ questao1:-
 
 questao2:- 
     write('********************************************************************************************************'), nl,
-    write('**  Está grávida?'), nl,
+    write('**  Esta gravida?'), nl,
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Não'), nl, nl,
@@ -68,7 +68,7 @@ questao2:-
 
 questao3:- 
     write('********************************************************************************************************'), nl,
-    write('**  Tem alguma doença crónica?'), nl,
+    write('**  Tem alguma doença cronica?'), nl,
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Não'), nl, nl,
@@ -80,7 +80,7 @@ questao3:-
 
 questao4:- 
     write('********************************************************************************************************'), nl,
-    write('** Qual é a sua idade?'), nl,
+    write('** Qual e a sua idade?'), nl,
     write('**'), nl,
     write('**  1 - 0-16'), nl, 
     write('**  2 - 17-64' ), nl,
