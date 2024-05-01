@@ -83,15 +83,13 @@ questao4:-
     write('** Qual é a sua idade?'), nl,
     write('**'), nl,
     write('**  1 - 0-16'), nl, 
-    write('**  2 - 17-35' ), nl,
-    write('**  3 - 36-64' ), nl,
+    write('**  2 - 17-64' ), nl,
     write('**  4 - 65-100' ), nl, nl,
     read(A4), nl,
     (
         (A4 == 1), assert(fact(jovem)), questao5; 
         (A4 == 2), assert(fact(adulto)), questao5;
-        (A4 == 3), assert(fact(jovem_adulto)), questao5;
-        (A4 == 4), assert(fact(idoso)), questao5
+        (A4 == 3), assert(fact(idoso)), questao5
     ).
 
     questao5:- 
