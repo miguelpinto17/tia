@@ -1,1142 +1,381 @@
-% Regras para direcionar para os perfis corretos com base nas características
-
-% Perfil 1: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(tosse, masculino, sim, nao, jovem, _)) then 1.
-
-% Perfil 2: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(tosse, masculino, sim, nao, adulto, _)) then 2.
-
-% Perfil 3: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(tosse, masculino, sim, nao, idoso, _)) then 3.
-
-% Perfil 4: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(tosse, masculino, nao, nao, jovem, _)) then 4.
-
-% Perfil 5: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(tosse, masculino, nao, nao, adulto, _)) then 5.
-
-% Perfil 6: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(tosse, masculino, nao, nao, idoso, _)) then 6.
-
-% Perfil 7: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(tosse, feminino, sim, sim, jovem, _)) then 7.
-
-% Perfil 8: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(tosse, feminino, sim, sim, adulto, _)) then 8.
-
-% Perfil 9: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(tosse, feminino, sim, sim, idoso, _)) then 9.
-
-% Perfil 10: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(tosse, feminino, sim, nao, jovem, _)) then 10.
-
-% Perfil 11: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(tosse, feminino, sim, nao, adulto, _)) then 11.
-
-% Perfil 12: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(tosse, feminino, sim, nao, idoso, _)) then 12.
-
-% Perfil 13: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(tosse, feminino, nao, sim, jovem, _)) then 13.
-
-% Perfil 14: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(tosse, feminino, nao, sim, adulto, _)) then 14.
-
-% Perfil 15: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(tosse, feminino, nao, sim, idoso, _)) then 15.
-
-% Perfil 16: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(tosse, feminino, nao, nao, jovem, _)) then 16.
-
-% Perfil 17: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(tosse, feminino, nao, nao, adulto, _)) then 17.
-
-% Perfil 18: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(tosse, feminino, nao, nao, idoso, _)) then 18.
-
-% Regras para direcionar para os perfis corretos com base nas características
-
-% Perfil 19: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(febre, masculino, sim, nao, jovem, _)) then 19.
-
-% Perfil 20: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(febre, masculino, sim, nao, adulto, _)) then 20.
-
-% Perfil 21: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(febre, masculino, sim, nao, idoso, _)) then 21.
-
-% Perfil 22: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(febre, masculino, nao, nao, jovem, _)) then 22.
-
-% Perfil 23: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(febre, masculino, nao, nao, adulto, _)) then 23.
-
-% Perfil 24: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(febre, masculino, nao, nao, idoso, _)) then 24.
-
-% Perfil 25: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(febre, feminino, sim, sim, jovem, _)) then 25.
-
-% Perfil 26: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(febre, feminino, sim, sim, adulto, _)) then 26.
-
-% Perfil 27: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(febre, feminino, sim, sim, idoso, _)) then 27.
-
-% Perfil 28: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(febre, feminino, sim, nao, jovem, _)) then 28.
-
-% Perfil 29: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(febre, feminino, sim, nao, adulto, _)) then 29.
-
-% Perfil 30: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(febre, feminino, sim, nao, idoso, _)) then 30.
-
-% Perfil 31: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(febre, feminino, nao, sim, jovem, _)) then 31.
-
-% Perfil 32: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(febre, feminino, nao, sim, adulto, _)) then 32.
-
-% Perfil 33: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(febre, feminino, nao, sim, idoso, _)) then 33.
-
-% Perfil 34: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(febre, feminino, nao, nao, jovem, _)) then 34.
-
-% Perfil 35: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(febre, feminino, nao, nao, adulto, _)) then 35.
-
-% Perfil 36: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(febre, feminino, nao, nao, idoso, _)) then 36.
-
-% Perfil 37: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(perda_de_peso, masculino, sim, nao, jovem, _)) then 37.
-
-% Perfil 38: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(perda_de_peso, masculino, sim, nao, adulto, _)) then 38.
-
-% Perfil 39: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(perda_de_peso, masculino, sim, nao, idoso, _)) then 39.
-
-% Perfil 40: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(perda_de_peso, masculino, nao, nao, jovem, _)) then 40.
-
-% Perfil 41: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(perda_de_peso, masculino, nao, nao, adulto, _)) then 41.
-
-% Perfil 42: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(perda_de_peso, masculino, nao, nao, idoso, _)) then 42.
-
-% Perfil 43: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(perda_de_peso, feminino, sim, sim, jovem, _)) then 43.
-
-% Perfil 44: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(perda_de_peso, feminino, sim, sim, adulto, _)) then 44.
-
-% Perfil 45: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(perda_de_peso, feminino, sim, sim, idoso, _)) then 45.
-
-% Perfil 46: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(perda_de_peso, feminino, sim, nao, jovem, _)) then 46.
-
-% Perfil 47: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(perda_de_peso, feminino, sim, nao, adulto, _)) then 47.
-
-% Perfil 48: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(perda_de_peso, feminino, sim, nao, idoso, _)) then 48.
-
-% Perfil 49: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(perda_de_peso, feminino, nao, sim, jovem, _)) then 49.
-
-% Perfil 50: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(perda_de_peso, feminino, nao, sim, adulto, _)) then 50.
-
-% Perfil 51: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(perda_de_peso, feminino, nao, sim, idoso, _)) then 51.
-
-% Perfil 52: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(perda_de_peso, feminino, nao, nao, jovem, _)) then 52.
-
-% Perfil 53: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(perda_de_peso, feminino, nao, nao, adulto, _)) then 53.
-
-% Perfil 54: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(perda_de_peso, feminino, nao, nao, idoso, _)) then 54.
-
-% Perfil 55: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(mal_estar, masculino, sim, nao, jovem, _)) then 55.
-
-% Perfil 56: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(mal_estar, masculino, sim, nao, adulto, _)) then 56.
-
-% Perfil 57: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(mal_estar, masculino, sim, nao, idoso, _)) then 57.
-
-% Perfil 58: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(mal_estar, masculino, nao, nao, jovem, _)) then 58.
-
-% Perfil 59: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(mal_estar, masculino, nao, nao, adulto, _)) then 59.
-
-% Perfil 60: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(mal_estar, masculino, nao, nao, idoso, _)) then 60.
-
-% Perfil 61: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(mal_estar, feminino, sim, sim, jovem, _)) then 61.
-
-% Perfil 62: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(mal_estar, feminino, sim, sim, adulto, _)) then 62.
-
-% Perfil 63: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(mal_estar, feminino, sim, sim, idoso, _)) then 63.
-
-% Perfil 64: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(mal_estar, feminino, sim, nao, jovem, _)) then 64.
-
-% Perfil 65: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(mal_estar, feminino, sim, nao, adulto, _)) then 65.
-
-% Perfil 66: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(mal_estar, feminino, sim, nao, idoso, _)) then 66.
-
-% Perfil 67: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(mal_estar, feminino, nao, sim, jovem, _)) then 67.
-
-% Perfil 68: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(mal_estar, feminino, nao, sim, adulto, _)) then 68.
-
-% Perfil 69: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(mal_estar, feminino, nao, sim, idoso, _)) then 69.
-
-% Perfil 70: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(mal_estar, feminino, nao, nao, jovem, _)) then 70.
-
-% Perfil 71: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(mal_estar, feminino, nao, nao, adulto, _)) then 71.
-
-% Perfil 72: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(mal_estar, feminino, nao, nao, idoso, _)) then 72.
-
-% Perfil 73: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(fadiga, masculino, sim, nao, jovem, _)) then 73.
-
-% Perfil 74: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(fadiga, masculino, sim, nao, adulto, _)) then 74.
-
-% Perfil 75: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(fadiga, masculino, sim, nao, idoso, _)) then 75.
-
-% Perfil 76: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(fadiga, masculino, nao, nao, jovem, _)) then 76.
-
-% Perfil 77: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(fadiga, masculino, nao, nao, adulto, _)) then 77.
-
-% Perfil 78: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(fadiga, masculino, nao, nao, idoso, _)) then 78.
-
-% Perfil 79: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(fadiga, feminino, sim, sim, jovem, _)) then 79.
-
-% Perfil 80: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(fadiga, feminino, sim, sim, adulto, _)) then 80.
-
-% Perfil 81: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(fadiga, feminino, sim, sim, idoso, _)) then 81.
-
-% Perfil 82: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(fadiga, feminino, sim, nao, jovem, _)) then 82.
-
-% Perfil 83: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(fadiga, feminino, sim, nao, adulto, _)) then 83.
-
-% Perfil 84: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(fadiga, feminino, sim, nao, idoso, _)) then 84.
-
-% Perfil 85: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(fadiga, feminino, nao, sim, jovem, _)) then 85.
-
-% Perfil 86: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(fadiga, feminino, nao, sim, adulto, _)) then 86.
-
-% Perfil 87: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(fadiga, feminino, nao, sim, idoso, _)) then 87.
-
-% Perfil 88: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(fadiga, feminino, nao, nao, jovem, _)) then 88.
-
-% Perfil 89: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(fadiga, feminino, nao, nao, adulto, _)) then 89.
-
-% Perfil 90: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(fadiga, feminino, nao, nao, idoso, _)) then 90.
-
-% Perfil 91: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(falta_de_ar, masculino, sim, nao, jovem, _)) then 91.
-
-% Perfil 92: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(falta_de_ar, masculino, sim, nao, adulto, _)) then 92.
-
-% Perfil 93: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(falta_de_ar, masculino, sim, nao, idoso, _)) then 93.
-
-% Perfil 94: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(falta_de_ar, masculino, nao, nao, jovem, _)) then 94.
-
-% Perfil 95: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(falta_de_ar, masculino, nao, nao, adulto, _)) then 95.
-
-% Perfil 96: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(falta_de_ar, masculino, nao, nao, idoso, _)) then 96.
-
-% Perfil 97: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(falta_de_ar, feminino, sim, sim, jovem, _)) then 97.
-
-% Perfil 98: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(falta_de_ar, feminino, sim, sim, adulto, _)) then 98.
-
-% Perfil 99: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(falta_de_ar, feminino, sim, sim, idoso, _)) then 99.
-
-% Perfil 100: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(falta_de_ar, feminino, sim, nao, jovem, _)) then 100.
-
-% Perfil 101: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(falta_de_ar, feminino, sim, nao, adulto, _)) then 101.
-
-% Perfil 102: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(falta_de_ar, feminino, sim, nao, idoso, _)) then 102.
-
-% Perfil 103: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(falta_de_ar, feminino, nao, sim, jovem, _)) then 103.
-
-% Perfil 104: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(falta_de_ar, feminino, nao, sim, adulto, _)) then 104.
-
-% Perfil 105: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(falta_de_ar, feminino, nao, sim, idoso, _)) then 105.
-
-% Perfil 106: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(falta_de_ar, feminino, nao, nao, jovem, _)) then 106.
-
-% Perfil 107: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(falta_de_ar, feminino, nao, nao, adulto, _)) then 107.
-
-% Perfil 108: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(falta_de_ar, feminino, nao, nao, idoso, _)) then 108.
-
-
-
-% Perfil 109: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(dor_no_peito, masculino, sim, nao, jovem, _)) then 109.
-
-% Perfil 110: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(dor_no_peito, masculino, sim, nao, adulto, _)) then 110.
-
-% Perfil 111: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(dor_no_peito, masculino, sim, nao, idoso, _)) then 111.
-
-% Perfil 112: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(dor_no_peito, masculino, nao, nao, jovem, _)) then 112.
-
-% Perfil 113: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(dor_no_peito, masculino, nao, nao, adulto, _)) then 113.
-
-% Perfil 114: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(dor_no_peito, masculino, nao, nao, idoso, _)) then 114.
-
-% Perfil 115: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(dor_no_peito, feminino, sim, sim, jovem, _)) then 115.
-
-% Perfil 116: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(dor_no_peito, feminino, sim, sim, adulto, _)) then 116.
-
-% Perfil 117: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(dor_no_peito, feminino, sim, sim, idoso, _)) then 117.
-
-% Perfil 118: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(dor_no_peito, feminino, sim, nao, jovem, _)) then 118.
-
-% Perfil 119: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(dor_no_peito, feminino, sim, nao, adulto, _)) then 119.
-
-% Perfil 120: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(dor_no_peito, feminino, sim, nao, idoso, _)) then 120.
-
-% Perfil 121: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(dor_no_peito, feminino, nao, sim, jovem, _)) then 121.
-
-% Perfil 122: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(dor_no_peito, feminino, nao, sim, adulto, _)) then 122.
-
-% Perfil 123: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(dor_no_peito, feminino, nao, sim, idoso, _)) then 123.
-
-% Perfil 124: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(dor_no_peito, feminino, nao, nao, jovem, _)) then 124.
-
-% Perfil 125: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(dor_no_peito, feminino, nao, nao, adulto, _)) then 125.
-
-% Perfil 126: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(dor_no_peito, feminino, nao, nao, idoso, _)) then 126.
-
-% Perfil 127: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(disturbios_pulmonares, masculino, sim, nao, jovem, _)) then 127.
-
-% Perfil 128: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(disturbios_pulmonares, masculino, sim, nao, adulto, _)) then 128.
-
-% Perfil 129: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(disturbios_pulmonares, masculino, sim, nao, idoso, _)) then 129.
-
-% Perfil 130: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(disturbios_pulmonares, masculino, nao, nao, jovem, _)) then 130.
-
-% Perfil 131: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(disturbios_pulmonares, masculino, nao, nao, adulto, _)) then 131.
-
-% Perfil 132: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(disturbios_pulmonares, masculino, nao, nao, idoso, _)) then 132.
-
-% Perfil 133: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(disturbios_pulmonares, feminino, sim, sim, jovem, _)) then 133.
-
-% Perfil 134: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(disturbios_pulmonares, feminino, sim, sim, adulto, _)) then 134.
-
-% Perfil 135: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(disturbios_pulmonares, feminino, sim, sim, idoso, _)) then 135.
-
-% Perfil 136: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(disturbios_pulmonares, feminino, sim, nao, jovem, _)) then 136.
-
-% Perfil 137: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(disturbios_pulmonares, feminino, sim, nao, adulto, _)) then 137.
-
-% Perfil 138: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(disturbios_pulmonares, feminino, sim, nao, idoso, _)) then 138.
-
-% Perfil 139: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(disturbios_pulmonares, feminino, nao, sim, jovem, _)) then 139.
-
-% Perfil 140: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(disturbios_pulmonares, feminino, nao, sim, adulto, _)) then 140.
-
-% Perfil 141: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(disturbios_pulmonares, feminino, nao, sim, idoso, _)) then 141.
-
-% Perfil 142: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(disturbios_pulmonares, feminino, nao, nao, jovem, _)) then 142.
-
-% Perfil 143: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(disturbios_pulmonares, feminino, nao, nao, adulto, _)) then 143.
-
-% Perfil 144: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(disturbios_pulmonares, feminino, nao, nao, idoso, _)) then 144.
-
-% Perfil 145: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(palpitacoes, masculino, sim, nao, jovem, _)) then 145.
-
-% Perfil 146: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(palpitacoes, masculino, sim, nao, adulto, _)) then 146.
-
-% Perfil 147: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(palpitacoes, masculino, sim, nao, idoso, _)) then 147.
-
-% Perfil 148: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(palpitacoes, masculino, nao, nao, jovem, _)) then 148.
-
-% Perfil 149: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(palpitacoes, masculino, nao, nao, adulto, _)) then 149.
-
-% Perfil 150: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(palpitacoes, masculino, nao, nao, idoso, _)) then 150.
-
-% Perfil 151: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(palpitacoes, feminino, sim, sim, jovem, _)) then 151.
-
-% Perfil 152: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(palpitacoes, feminino, sim, sim, adulto, _)) then 152.
-
-% Perfil 153: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(palpitacoes, feminino, sim, sim, idoso, _)) then 153.
-
-% Perfil 154: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(palpitacoes, feminino, sim, nao, jovem, _)) then 154.
-
-% Perfil 155: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(palpitacoes, feminino, sim, nao, adulto, _)) then 155.
-
-% Perfil 156: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(palpitacoes, feminino, sim, nao, idoso, _)) then 156.
-
-% Perfil 157: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(palpitacoes, feminino, nao, sim, jovem, _)) then 157.
-
-% Perfil 158: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(palpitacoes, feminino, nao, sim, adulto, _)) then 158.
-
-% Perfil 159: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(palpitacoes, feminino, nao, sim, idoso, _)) then 159.
-
-% Perfil 160: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(palpitacoes, feminino, nao, nao, jovem, _)) then 160.
-
-% Perfil 161: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(palpitacoes, feminino, nao, nao, adulto, _)) then 161.
-
-% Perfil 162: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(palpitacoes, feminino, nao, nao, idoso, _)) then 162.
-
-% Perfil 163: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(desmaio, masculino, sim, nao, jovem, _)) then 163.
-
-% Perfil 164: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(desmaio, masculino, sim, nao, adulto, _)) then 164.
-
-% Perfil 165: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(desmaio, masculino, sim, nao, idoso, _)) then 165.
-
-% Perfil 166: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(desmaio, masculino, nao, nao, jovem, _)) then 166.
-
-% Perfil 167: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(desmaio, masculino, nao, nao, adulto, _)) then 167.
-
-% Perfil 168: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(desmaio, masculino, nao, nao, idoso, _)) then 168.
-
-% Perfil 169: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(desmaio, feminino, sim, sim, jovem, _)) then 169.
-
-% Perfil 170: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(desmaio, feminino, sim, sim, adulto, _)) then 170.
-
-% Perfil 171: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(desmaio, feminino, sim, sim, idoso, _)) then 171.
-
-% Perfil 172: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(desmaio, feminino, sim, nao, jovem, _)) then 172.
-
-% Perfil 173: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(desmaio, feminino, sim, nao, adulto, _)) then 173.
-
-% Perfil 174: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(desmaio, feminino, sim, nao, idoso, _)) then 174.
-
-% Perfil 175: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(desmaio, feminino, nao, sim, jovem, _)) then 175.
-
-% Perfil 176: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(desmaio, feminino, nao, sim, adulto, _)) then 176.
-
-% Perfil 177: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(desmaio, feminino, nao, sim, idoso, _)) then 177.
-
-% Perfil 178: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(desmaio, feminino, nao, nao, jovem, _)) then 178.
-
-% Perfil 179: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(desmaio, feminino, nao, nao, adulto, _)) then 179.
-
-% Perfil 180: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(desmaio, feminino, nao, nao, idoso, _)) then 180.
-
-% Perfil 181: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(dor_abdominal, masculino, sim, nao, jovem, _)) then 181.
-
-% Perfil 182: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(dor_abdominal, masculino, sim, nao, adulto, _)) then 182.
-
-% Perfil 183: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(dor_abdominal, masculino, sim, nao, idoso, _)) then 183.
-
-% Perfil 184: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(dor_abdominal, masculino, nao, nao, jovem, _)) then 184.
-
-% Perfil 185: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(dor_abdominal, masculino, nao, nao, adulto, _)) then 185.
-
-% Perfil 186: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(dor_abdominal, masculino, nao, nao, idoso, _)) then 186.
-
-% Perfil 187: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(dor_abdominal, feminino, sim, sim, jovem, _)) then 187.
-
-% Perfil 188: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(dor_abdominal, feminino, sim, sim, adulto, _)) then 188.
-
-% Perfil 189: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(dor_abdominal, feminino, sim, sim, idoso, _)) then 189.
-
-% Perfil 190: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(dor_abdominal, feminino, sim, nao, jovem, _)) then 190.
-
-% Perfil 191: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(dor_abdominal, feminino, sim, nao, adulto, _)) then 191.
-
-% Perfil 192: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(dor_abdominal, feminino, sim, nao, idoso, _)) then 192.
-
-% Perfil 193: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(dor_abdominal, feminino, nao, sim, jovem, _)) then 193.
-
-% Perfil 194: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(dor_abdominal, feminino, nao, sim, adulto, _)) then 194.
-
-% Perfil 195: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(dor_abdominal, feminino, nao, sim, idoso, _)) then 195.
-
-% Perfil 196: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(dor_abdominal, feminino, nao, nao, jovem, _)) then 196.
-
-% Perfil 197: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(dor_abdominal, feminino, nao, nao, adulto, _)) then 197.
-
-% Perfil 198: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(dor_abdominal, feminino, nao, nao, idoso, _)) then 198.
-
-% Perfil 199: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(vomito, masculino, sim, nao, jovem, _)) then 199.
-
-% Perfil 200: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(vomito, masculino, sim, nao, adulto, _)) then 200.
-
-% Perfil 201: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(vomito, masculino, sim, nao, idoso, _)) then 201.
-
-% Perfil 202: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(vomito, masculino, nao, nao, jovem, _)) then 202.
-
-% Perfil 203: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(vomito, masculino, nao, nao, adulto, _)) then 203.
-
-% Perfil 204: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(vomito, masculino, nao, nao, idoso, _)) then 204.
-
-% Perfil 205: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(vomito, feminino, sim, sim, jovem, _)) then 205.
-
-% Perfil 206: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(vomito, feminino, sim, sim, adulto, _)) then 206.
-
-% Perfil 207: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(vomito, feminino, sim, sim, idoso, _)) then 207.
-
-% Perfil 208: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(vomito, feminino, sim, nao, jovem, _)) then 208.
-
-% Perfil 209: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(vomito, feminino, sim, nao, adulto, _)) then 209.
-
-% Perfil 210: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(vomito, feminino, sim, nao, idoso, _)) then 210.
-
-% Perfil 211: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(vomito, feminino, nao, sim, jovem, _)) then 211.
-
-% Perfil 212: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(vomito, feminino, nao, sim, adulto, _)) then 212.
-
-% Perfil 213: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(vomito, feminino, nao, sim, idoso, _)) then 213.
-
-% Perfil 214: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(vomito, feminino, nao, nao, jovem, _)) then 214.
-
-% Perfil 215: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(vomito, feminino, nao, nao, adulto, _)) then 215.
-
-% Perfil 216: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(vomito, feminino, nao, nao, idoso, _)) then 216.
-
-% Perfil 217: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(diarreia, masculino, sim, nao, jovem, _)) then 217.
-
-% Perfil 218: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(diarreia, masculino, sim, nao, adulto, _)) then 218.
-
-% Perfil 219: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(diarreia, masculino, sim, nao, idoso, _)) then 219.
-
-% Perfil 220: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(diarreia, masculino, nao, nao, jovem, _)) then 220.
-
-% Perfil 221: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(diarreia, masculino, nao, nao, adulto, _)) then 221.
-
-% Perfil 222: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(diarreia, masculino, nao, nao, idoso, _)) then 222.
-
-% Perfil 223: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(diarreia, feminino, sim, sim, jovem, _)) then 223.
-
-% Perfil 224: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(diarreia, feminino, sim, sim, adulto, _)) then 224.
-
-% Perfil 225: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(diarreia, feminino, sim, sim, idoso, _)) then 225.
-
-% Perfil 226: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(diarreia, feminino, sim, nao, jovem, _)) then 226.
-
-% Perfil 227: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(diarreia, feminino, sim, nao, adulto, _)) then 227.
-
-% Perfil 228: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(diarreia, feminino, sim, nao, idoso, _)) then 228.
-
-% Perfil 229: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(diarreia, feminino, nao, sim, jovem, _)) then 229.
-
-% Perfil 230: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(diarreia, feminino, nao, sim, adulto, _)) then 230.
-
-% Perfil 231: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(diarreia, feminino, nao, sim, idoso, _)) then 231.
-
-% Perfil 232: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(diarreia, feminino, nao, nao, jovem, _)) then 232.
-
-% Perfil 233: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(diarreia, feminino, nao, nao, adulto, _)) then 233.
-
-% Perfil 234: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(diarreia, feminino, nao, nao, idoso, _)) then 234.
-
-% Perfil 235: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(constipacao, masculino, sim, nao, jovem, _)) then 235.
-
-% Perfil 236: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(constipacao, masculino, sim, nao, adulto, _)) then 236.
-
-% Perfil 237: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(constipacao, masculino, sim, nao, idoso, _)) then 237.
-
-% Perfil 238: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(constipacao, masculino, nao, nao, jovem, _)) then 238.
-
-% Perfil 239: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(constipacao, masculino, nao, nao, adulto, _)) then 239.
-
-% Perfil 240: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(constipacao, masculino, nao, nao, idoso, _)) then 240.
-
-% Perfil 241: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(constipacao, feminino, sim, sim, jovem, _)) then 241.
-
-% Perfil 242: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(constipacao, feminino, sim, sim, adulto, _)) then 242.
-
-% Perfil 243: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(constipacao, feminino, sim, sim, idoso, _)) then 243.
-
-% Perfil 244: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(constipacao, feminino, sim, nao, jovem, _)) then 244.
-
-% Perfil 245: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(constipacao, feminino, sim, nao, adulto, _)) then 245.
-
-% Perfil 246: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(constipacao, feminino, sim, nao, idoso, _)) then 246.
-
-% Perfil 247: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(constipacao, feminino, nao, sim, jovem, _)) then 247.
-
-% Perfil 248: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(constipacao, feminino, nao, sim, adulto, _)) then 248.
-
-% Perfil 249: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(constipacao, feminino, nao, sim, idoso, _)) then 249.
-
-% Perfil 250: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(constipacao, feminino, nao, nao, jovem, _)) then 250.
-
-% Perfil 251: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(constipacao, feminino, nao, nao, adulto, _)) then 251.
-
-% Perfil 252: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(constipacao, feminino, nao, nao, idoso, _)) then 252.
-
-% Perfil 253: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(dor_de_cabeca, masculino, sim, nao, jovem, _)) then 253.
-
-% Perfil 254: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(dor_de_cabeca, masculino, sim, nao, adulto, _)) then 254.
-
-% Perfil 255: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(dor_de_cabeca, masculino, sim, nao, idoso, _)) then 255.
-
-% Perfil 256: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(dor_de_cabeca, masculino, nao, nao, jovem, _)) then 256.
-
-% Perfil 257: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(dor_de_cabeca, masculino, nao, nao, adulto, _)) then 257.
-
-% Perfil 258: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(dor_de_cabeca, masculino, nao, nao, idoso, _)) then 258.
-
-% Perfil 259: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(dor_de_cabeca, feminino, sim, sim, jovem, _)) then 259.
-
-% Perfil 260: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(dor_de_cabeca, feminino, sim, sim, adulto, _)) then 260.
-
-% Perfil 261: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(dor_de_cabeca, feminino, sim, sim, idoso, _)) then 261.
-
-% Perfil 262: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(dor_de_cabeca, feminino, sim, nao, jovem, _)) then 262.
-
-% Perfil 263: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(dor_de_cabeca, feminino, sim, nao, adulto, _)) then 263.
-
-% Perfil 264: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(dor_de_cabeca, feminino, sim, nao, idoso, _)) then 264.
-
-% Perfil 265: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(dor_de_cabeca, feminino, nao, sim, jovem, _)) then 265.
-
-% Perfil 266: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(dor_de_cabeca, feminino, nao, sim, adulto, _)) then 266.
-
-% Perfil 267: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(dor_de_cabeca, feminino, nao, sim, idoso, _)) then 267.
-
-% Perfil 268: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(dor_de_cabeca, feminino, nao, nao, jovem, _)) then 268.
-
-% Perfil 269: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(dor_de_cabeca, feminino, nao, nao, adulto, _)) then 269.
-
-% Perfil 270: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(dor_de_cabeca, feminino, nao, nao, idoso, _)) then 270.
-
-% Perfil 271: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(fraqueza, masculino, sim, nao, jovem, _)) then 271.
-
-% Perfil 272: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(fraqueza, masculino, sim, nao, adulto, _)) then 272.
-
-% Perfil 273: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(fraqueza, masculino, sim, nao, idoso, _)) then 273.
-
-% Perfil 274: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(fraqueza, masculino, nao, nao, jovem, _)) then 274.
-
-% Perfil 275: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(fraqueza, masculino, nao, nao, adulto, _)) then 275.
-
-% Perfil 276: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(fraqueza, masculino, nao, nao, idoso, _)) then 276.
-
-% Perfil 277: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(fraqueza, feminino, sim, sim, jovem, _)) then 277.
-
-% Perfil 278: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(fraqueza, feminino, sim, sim, adulto, _)) then 278.
-
-% Perfil 279: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(fraqueza, feminino, sim, sim, idoso, _)) then 279.
-
-% Perfil 280: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(fraqueza, feminino, sim, nao, jovem, _)) then 280.
-
-% Perfil 281: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(fraqueza, feminino, sim, nao, adulto, _)) then 281.
-
-% Perfil 282: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(fraqueza, feminino, sim, nao, idoso, _)) then 282.
-
-% Perfil 283: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(fraqueza, feminino, nao, sim, jovem, _)) then 283.
-
-% Perfil 284: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(fraqueza, feminino, nao, sim, adulto, _)) then 284.
-
-% Perfil 285: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(fraqueza, feminino, nao, sim, idoso, _)) then 285.
-
-% Perfil 286: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(fraqueza, feminino, nao, nao, jovem, _)) then 286.
-
-% Perfil 287: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(fraqueza, feminino, nao, nao, adulto, _)) then 287.
-
-% Perfil 288: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(fraqueza, feminino, nao, nao, idoso, _)) then 288.
-
-% Perfil 289: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(ansiedade, masculino, sim, nao, jovem, _)) then 289.
-
-% Perfil 290: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(ansiedade, masculino, sim, nao, adulto, _)) then 290.
-
-% Perfil 291: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(ansiedade, masculino, sim, nao, idoso, _)) then 291.
-
-% Perfil 292: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(ansiedade, masculino, nao, nao, jovem, _)) then 292.
-
-% Perfil 293: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(ansiedade, masculino, nao, nao, adulto, _)) then 293.
-
-% Perfil 294: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(ansiedade, masculino, nao, nao, idoso, _)) then 294.
-
-% Perfil 295: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(ansiedade, feminino, sim, sim, jovem, _)) then 295.
-
-% Perfil 296: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(ansiedade, feminino, sim, sim, adulto, _)) then 296.
-
-% Perfil 297: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(ansiedade, feminino, sim, sim, idoso, _)) then 297.
-
-% Perfil 298: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(ansiedade, feminino, sim, nao, jovem, _)) then 298.
-
-% Perfil 299: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(ansiedade, feminino, sim, nao, adulto, _)) then 299.
-
-% Perfil 300: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(ansiedade, feminino, sim, nao, idoso, _)) then 300.
-
-% Perfil 301: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(ansiedade, feminino, nao, sim, jovem, _)) then 301.
-
-% Perfil 302: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(ansiedade, feminino, nao, sim, adulto, _)) then 302.
-
-% Perfil 303: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(ansiedade, feminino, nao, sim, idoso, _)) then 303.
-
-% Perfil 304: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(ansiedade, feminino, nao, nao, jovem, _)) then 304.
-
-% Perfil 305: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(ansiedade, feminino, nao, nao, adulto, _)) then 305.
-
-% Perfil 306: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(ansiedade, feminino, nao, nao, idoso, _)) then 306.
-
-% Perfil 307: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(dificuldade_para_dormir, masculino, sim, nao, jovem, _)) then 307.
-
-% Perfil 308: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(dificuldade_para_dormir, masculino, sim, nao, adulto, _)) then 308.
-
-% Perfil 309: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(dificuldade_para_dormir, masculino, sim, nao, idoso, _)) then 309.
-
-% Perfil 310: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(dificuldade_para_dormir, masculino, nao, nao, jovem, _)) then 310.
-
-% Perfil 311: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(dificuldade_para_dormir, masculino, nao, nao, adulto, _)) then 311.
-
-% Perfil 312: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(dificuldade_para_dormir, masculino, nao, nao, idoso, _)) then 312.
-
-% Perfil 313: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(dificuldade_para_dormir, feminino, sim, sim, jovem, _)) then 313.
-
-% Perfil 314: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(dificuldade_para_dormir, feminino, sim, sim, adulto, _)) then 314.
-
-% Perfil 315: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(dificuldade_para_dormir, feminino, sim, sim, idoso, _)) then 315.
-
-% Perfil 316: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(dificuldade_para_dormir, feminino, sim, nao, jovem, _)) then 316.
-
-% Perfil 317: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(dificuldade_para_dormir, feminino, sim, nao, adulto, _)) then 317.
-
-% Perfil 318: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(dificuldade_para_dormir, feminino, sim, nao, idoso, _)) then 318.
-
-% Perfil 319: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(dificuldade_para_dormir, feminino, nao, sim, jovem, _)) then 319.
-
-% Perfil 320: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(dificuldade_para_dormir, feminino, nao, sim, adulto, _)) then 320.
-
-% Perfil 321: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(dificuldade_para_dormir, feminino, nao, sim, idoso, _)) then 321.
-
-% Perfil 322: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(dificuldade_para_dormir, feminino, nao, nao, jovem, _)) then 322.
-
-% Perfil 323: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(dificuldade_para_dormir, feminino, nao, nao, adulto, _)) then 323.
-
-% Perfil 324: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(dificuldade_para_dormir, feminino, nao, nao, idoso, _)) then 324.
-
-% Perfil 325: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(hemorragia, masculino, sim, nao, jovem, _)) then 325.
-
-% Perfil 326: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(hemorragia, masculino, sim, nao, adulto, _)) then 326.
-
-% Perfil 327: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(hemorragia, masculino, sim, nao, idoso, _)) then 327.
-
-% Perfil 328: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(hemorragia, masculino, nao, nao, jovem, _)) then 328.
-
-% Perfil 329: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(hemorragia, masculino, nao, nao, adulto, _)) then 329.
-
-% Perfil 330: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(hemorragia, masculino, nao, nao, idoso, _)) then 330.
-
-% Perfil 331: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(hemorragia, feminino, sim, sim, jovem, _)) then 331.
-
-% Perfil 332: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(hemorragia, feminino, sim, sim, adulto, _)) then 332.
-
-% Perfil 333: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(hemorragia, feminino, sim, sim, idoso, _)) then 333.
-
-% Perfil 334: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(hemorragia, feminino, sim, nao, jovem, _)) then 334.
-
-% Perfil 335: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(hemorragia, feminino, sim, nao, adulto, _)) then 335.
-
-% Perfil 336: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(hemorragia, feminino, sim, nao, idoso, _)) then 336.
-
-% Perfil 337: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(hemorragia, feminino, nao, sim, jovem, _)) then 337.
-
-% Perfil 338: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(hemorragia, feminino, nao, sim, adulto, _)) then 338.
-
-% Perfil 339: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(hemorragia, feminino, nao, sim, idoso, _)) then 339.
-
-% Perfil 340: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(hemorragia, feminino, nao, nao, jovem, _)) then 340.
-
-% Perfil 341: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(hemorragia, feminino, nao, nao, adulto, _)) then 341.
-
-% Perfil 342: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(hemorragia, feminino, nao, nao, idoso, _)) then 342.
-
-% Perfil 343: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(perda_de_paladar, masculino, sim, nao, jovem, _)) then 343.
-
-% Perfil 344: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(perda_de_paladar, masculino, sim, nao, adulto, _)) then 344.
-
-% Perfil 345: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(perda_de_paladar, masculino, sim, nao, idoso, _)) then 345.
-
-% Perfil 346: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(perda_de_paladar, masculino, nao, nao, jovem, _)) then 346.
-
-% Perfil 347: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(perda_de_paladar, masculino, nao, nao, adulto, _)) then 347.
-
-% Perfil 348: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(perda_de_paladar, masculino, nao, nao, idoso, _)) then 348.
-
-% Perfil 349: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(perda_de_paladar, feminino, sim, sim, jovem, _)) then 349.
-
-% Perfil 350: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(perda_de_paladar, feminino, sim, sim, adulto, _)) then 350.
-
-% Perfil 351: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(perda_de_paladar, feminino, sim, sim, idoso, _)) then 351.
-
-% Perfil 352: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(perda_de_paladar, feminino, sim, nao, jovem, _)) then 352.
-
-% Perfil 353: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(perda_de_paladar, feminino, sim, nao, adulto, _)) then 353.
-
-% Perfil 354: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(perda_de_paladar, feminino, sim, nao, idoso, _)) then 354.
-
-% Perfil 355: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(perda_de_paladar, feminino, nao, sim, jovem, _)) then 355.
-
-% Perfil 356: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(perda_de_paladar, feminino, nao, sim, adulto, _)) then 356.
-
-% Perfil 357: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(perda_de_paladar, feminino, nao, sim, idoso, _)) then 357.
-
-% Perfil 358: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(perda_de_paladar, feminino, nao, nao, jovem, _)) then 358.
-
-% Perfil 359: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(perda_de_paladar, feminino, nao, nao, adulto, _)) then 359.
-
-% Perfil 360: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(perda_de_paladar, feminino, nao, nao, idoso, _)) then 360.
-
-% Perfil 361: Homem, Com doença crônica, Não grávido, Jovem
-if(obter_tratamento(rotura_muscular, masculino, sim, nao, jovem, _)) then 361.
-
-% Perfil 362: Homem, Com doença crônica, Não grávido, Adulto
-if(obter_tratamento(rotura_muscular, masculino, sim, nao, adulto, _)) then 362.
-
-% Perfil 363: Homem, Com doença crônica, Não grávido, Idoso
-if(obter_tratamento(rotura_muscular, masculino, sim, nao, idoso, _)) then 363.
-
-% Perfil 364: Homem, Sem doença crônica, Não grávido, Jovem
-if(obter_tratamento(rotura_muscular, masculino, nao, nao, jovem, _)) then 364.
-
-% Perfil 365: Homem, Sem doença crônica, Não grávido, Adulto
-if(obter_tratamento(rotura_muscular, masculino, nao, nao, adulto, _)) then 365.
-
-% Perfil 366: Homem, Sem doença crônica, Não grávido, Idoso
-if(obter_tratamento(rotura_muscular, masculino, nao, nao, idoso, _)) then 366.
-
-% Perfil 367: Mulher, Com doença crônica, Grávida, Jovem
-if(obter_tratamento(rotura_muscular, feminino, sim, sim, jovem, _)) then 367.
-
-% Perfil 368: Mulher, Com doença crônica, Grávida, Adulto
-if(obter_tratamento(rotura_muscular, feminino, sim, sim, adulto, _)) then 368.
-
-% Perfil 369: Mulher, Com doença crônica, Grávida, Idoso
-if(obter_tratamento(rotura_muscular, feminino, sim, sim, idoso, _)) then 369.
-
-% Perfil 370: Mulher, Com doença crônica, Não grávida, Jovem
-if(obter_tratamento(rotura_muscular, feminino, sim, nao, jovem, _)) then 370.
-
-% Perfil 371: Mulher, Com doença crônica, Não grávida, Adulto
-if(obter_tratamento(rotura_muscular, feminino, sim, nao, adulto, _)) then 371.
-
-% Perfil 372: Mulher, Com doença crônica, Não grávida, Idoso
-if(obter_tratamento(rotura_muscular, feminino, sim, nao, idoso, _)) then 372.
-
-% Perfil 373: Mulher, Sem doença crônica, Grávida, Jovem
-if(obter_tratamento(rotura_muscular, feminino, nao, sim, jovem, _)) then 373.
-
-% Perfil 374: Mulher, Sem doença crônica, Grávida, Adulto
-if(obter_tratamento(rotura_muscular, feminino, nao, sim, adulto, _)) then 374.
-
-% Perfil 375: Mulher, Sem doença crônica, Grávida, Idoso
-if(obter_tratamento(rotura_muscular, feminino, nao, sim, idoso, _)) then 375.
-
-% Perfil 376: Mulher, Sem doença crônica, Não grávida, Jovem
-if(obter_tratamento(rotura_muscular, feminino, nao, nao, jovem, _)) then 376.
-
-% Perfil 377: Mulher, Sem doença crônica, Não grávida, Adulto
-if(obter_tratamento(rotura_muscular, feminino, nao, nao, adulto, _)) then 377.
-
-% Perfil 378: Mulher, Sem doença crônica, Não grávida, Idoso
-if(obter_tratamento(rotura_muscular, feminino, nao, nao, idoso, _)) then 378.
+if tosse and masculino and sim and nao and jovem then 1.
+if tosse and masculino and sim and nao and adulto then 2.
+if tosse and masculino and sim and nao and idoso then 3.
+if tosse and masculino and nao and nao and jovem then 4.
+if tosse and masculino and nao and nao and adulto then 5.
+if tosse and masculino and nao and nao and idoso then 6.
+if tosse and feminino and sim and sim and jovem then 7.
+if tosse and feminino and sim and sim and adulto then 8.
+if tosse and feminino and sim and sim and idoso then 9.
+if tosse and feminino and sim and nao and jovem then 10.
+if tosse and feminino and sim and nao and adulto then 11.
+if tosse and feminino and sim and nao and idoso then 12.
+if tosse and feminino and nao and sim and jovem then 13.
+if tosse and feminino and nao and sim and adulto then 14.
+if tosse and feminino and nao and sim and idoso then 15.
+if tosse and feminino and nao and nao and jovem then 16.
+if tosse and feminino and nao and nao and adulto then 17.
+if tosse and feminino and nao and nao and idoso then 18.
+if febre and masculino and sim and nao and jovem then 19.
+if febre and masculino and sim and nao and adulto then 20.
+if febre and masculino and sim and nao and idoso then 21.
+if febre and masculino and nao and nao and jovem then 22.
+if febre and masculino and nao and nao and adulto then 23.
+if febre and masculino and nao and nao and idoso then 24.
+if febre and feminino and sim and sim and jovem then 25.
+if febre and feminino and sim and sim and adulto then 26.
+if febre and feminino and sim and sim and idoso then 27.
+if febre and feminino and sim and nao and jovem then 28.
+if febre and feminino and sim and nao and adulto then 29.
+if febre and feminino and sim and nao and idoso then 30.
+if febre and feminino and nao and sim and jovem then 31.
+if febre and feminino and nao and sim and adulto then 32.
+if febre and feminino and nao and sim and idoso then 33.
+if febre and feminino and nao and nao and jovem then 34.
+if febre and feminino and nao and nao and adulto then 35.
+if febre and feminino and nao and nao and idoso then 36.
+if perda_de_peso and masculino and sim and nao and jovem then 37.
+if perda_de_peso and masculino and sim and nao and adulto then 38.
+if perda_de_peso and masculino and sim and nao and idoso then 39.
+if perda_de_peso and masculino and nao and nao and jovem then 40.
+if perda_de_peso and masculino and nao and nao and adulto then 41.
+if perda_de_peso and masculino and nao and nao and idoso then 42.
+if perda_de_peso and feminino and sim and sim and jovem then 43.
+if perda_de_peso and feminino and sim and sim and adulto then 44.
+if perda_de_peso and feminino and sim and sim and idoso then 45.
+if perda_de_peso and feminino and sim and nao and jovem then 46.
+if perda_de_peso and feminino and sim and nao and adulto then 47.
+if perda_de_peso and feminino and sim and nao and idoso then 48.
+if perda_de_peso and feminino and nao and sim and jovem then 49.
+if perda_de_peso and feminino and nao and sim and adulto then 50.
+if perda_de_peso and feminino and nao and sim and idoso then 51.
+if perda_de_peso and feminino and nao and nao and jovem then 52.
+if perda_de_peso and feminino and nao and nao and adulto then 53.
+if perda_de_peso and feminino and nao and nao and idoso then 54.
+if mal_estar and masculino and sim and nao and jovem then 55.
+if mal_estar and masculino and sim and nao and adulto then 56.
+if mal_estar and masculino and sim and nao and idoso then 57.
+if mal_estar and masculino and nao and nao and jovem then 58.
+if mal_estar and masculino and nao and nao and adulto then 59.
+if mal_estar and masculino and nao and nao and idoso then 60.
+if mal_estar and feminino and sim and sim and jovem then 61.
+if mal_estar and feminino and sim and sim and adulto then 62.
+if mal_estar and feminino and sim and sim and idoso then 63.
+if mal_estar and feminino and sim and nao and jovem then 64.
+if mal_estar and feminino and sim and nao and adulto then 65.
+if mal_estar and feminino and sim and nao and idoso then 66.
+if mal_estar and feminino and nao and sim and jovem then 67.
+if mal_estar and feminino and nao and sim and adulto then 68.
+if mal_estar and feminino and nao and sim and idoso then 69.
+if mal_estar and feminino and nao and nao and jovem then 70.
+if mal_estar and feminino and nao and nao and adulto then 71.
+if mal_estar and feminino and nao and nao and idoso then 72.
+if fadiga and masculino and sim and nao and jovem then 73.
+if fadiga and masculino and sim and nao and adulto then 74.
+if fadiga and masculino and sim and nao and idoso then 75.
+if fadiga and masculino and nao and nao and jovem then 76.
+if fadiga and masculino and nao and nao and adulto then 77.
+if fadiga and masculino and nao and nao and idoso then 78.
+if fadiga and feminino and sim and sim and jovem then 79.
+if fadiga and feminino and sim and sim and adulto then 80.
+if fadiga and feminino and sim and sim and idoso then 81.
+if fadiga and feminino and sim and nao and jovem then 82.
+if fadiga and feminino and sim and nao and adulto then 83.
+if fadiga and feminino and sim and nao and idoso then 84.
+if fadiga and feminino and nao and sim and jovem then 85.
+if fadiga and feminino and nao and sim and adulto then 86.
+if fadiga and feminino and nao and sim and idoso then 87.
+if fadiga and feminino and nao and nao and jovem then 88.
+if fadiga and feminino and nao and nao and adulto then 89.
+if fadiga and feminino and nao and nao and idoso then 90.
+if falta_de_ar and masculino and sim and nao and jovem then 91.
+if falta_de_ar and masculino and sim and nao and adulto then 92.
+if falta_de_ar and masculino and sim and nao and idoso then 93.
+if falta_de_ar and masculino and nao and nao and jovem then 94.
+if falta_de_ar and masculino and nao and nao and adulto then 95.
+if falta_de_ar and masculino and nao and nao and idoso then 96.
+if falta_de_ar and feminino and sim and sim and jovem then 97.
+if falta_de_ar and feminino and sim and sim and adulto then 98.
+if falta_de_ar and feminino and sim and sim and idoso then 99.
+if falta_de_ar and feminino and sim and nao and jovem then 100.
+if falta_de_ar and feminino and sim and nao and adulto then 101.
+if falta_de_ar and feminino and sim and nao and idoso then 102.
+if falta_de_ar and feminino and nao and sim and jovem then 103.
+if falta_de_ar and feminino and nao and sim and adulto then 104.
+if falta_de_ar and feminino and nao and sim and idoso then 105.
+if falta_de_ar and feminino and nao and nao and jovem then 106.
+if falta_de_ar and feminino and nao and nao and adulto then 107.
+if falta_de_ar and feminino and nao and nao and idoso then 108.
+if dor_no_peito and masculino and sim and nao and jovem then 109.
+if dor_no_peito and masculino and sim and nao and adulto then 110.
+if dor_no_peito and masculino and sim and nao and idoso then 111.
+if dor_no_peito and masculino and nao and nao and jovem then 112.
+if dor_no_peito and masculino and nao and nao and adulto then 113.
+if dor_no_peito and masculino and nao and nao and idoso then 114.
+if dor_no_peito and feminino and sim and sim and jovem then 115.
+if dor_no_peito and feminino and sim and sim and adulto then 116.
+if dor_no_peito and feminino and sim and sim and idoso then 117.
+if dor_no_peito and feminino and sim and nao and jovem then 118.
+if dor_no_peito and feminino and sim and nao and adulto then 119.
+if dor_no_peito and feminino and sim and nao and idoso then 120.
+if dor_no_peito and feminino and nao and sim and jovem then 121.
+if dor_no_peito and feminino and nao and sim and adulto then 122.
+if dor_no_peito and feminino and nao and sim and idoso then 123.
+if dor_no_peito and feminino and nao and nao and jovem then 124.
+if dor_no_peito and feminino and nao and nao and adulto then 125.
+if dor_no_peito and feminino and nao and nao and idoso then 126.
+if disturbios_pulmonares and masculino and sim and nao and jovem then 127.
+if disturbios_pulmonares and masculino and sim and nao and adulto then 128.
+if disturbios_pulmonares and masculino and sim and nao and idoso then 129.
+if disturbios_pulmonares and masculino and nao and nao and jovem then 130.
+if disturbios_pulmonares and masculino and nao and nao and adulto then 131.
+if disturbios_pulmonares and masculino and nao and nao and idoso then 132.
+if disturbios_pulmonares and feminino and sim and sim and jovem then 133.
+if disturbios_pulmonares and feminino and sim and sim and adulto then 134.
+if disturbios_pulmonares and feminino and sim and sim and idoso then 135.
+if disturbios_pulmonares and feminino and sim and nao and jovem then 136.
+if disturbios_pulmonares and feminino and sim and nao and adulto then 137.
+if disturbios_pulmonares and feminino and sim and nao and idoso then 138.
+if disturbios_pulmonares and feminino and nao and sim and jovem then 139.
+if disturbios_pulmonares and feminino and nao and sim and adulto then 140.
+if disturbios_pulmonares and feminino and nao and sim and idoso then 141.
+if disturbios_pulmonares and feminino and nao and nao and jovem then 142.
+if disturbios_pulmonares and feminino and nao and nao and adulto then 143.
+if disturbios_pulmonares and feminino and nao and nao and idoso then 144.
+if palpitacoes and masculino and sim and nao and jovem then 145.
+if palpitacoes and masculino and sim and nao and adulto then 146.
+if palpitacoes and masculino and sim and nao and idoso then 147.
+if palpitacoes and masculino and nao and nao and jovem then 148.
+if palpitacoes and masculino and nao and nao and adulto then 149.
+if palpitacoes and masculino and nao and nao and idoso then 150.
+if palpitacoes and feminino and sim and sim and jovem then 151.
+if palpitacoes and feminino and sim and sim and adulto then 152.
+if palpitacoes and feminino and sim and sim and idoso then 153.
+if palpitacoes and feminino and sim and nao and jovem then 154.
+if palpitacoes and feminino and sim and nao and adulto then 155.
+if palpitacoes and feminino and sim and nao and idoso then 156.
+if palpitacoes and feminino and nao and sim and jovem then 157.
+if palpitacoes and feminino and nao and sim and adulto then 158.
+if palpitacoes and feminino and nao and sim and idoso then 159.
+if palpitacoes and feminino and nao and nao and jovem then 160.
+if palpitacoes and feminino and nao and nao and adulto then 161.
+if palpitacoes and feminino and nao and nao and idoso then 162.
+if desmaio and masculino and sim and nao and jovem then 163.
+if desmaio and masculino and sim and nao and adulto then 164.
+if desmaio and masculino and sim and nao and idoso then 165.
+if desmaio and masculino and nao and nao and jovem then 166.
+if desmaio and masculino and nao and nao and adulto then 167.
+if desmaio and masculino and nao and nao and idoso then 168.
+if desmaio and feminino and sim and sim and jovem then 169.
+if desmaio and feminino and sim and sim and adulto then 170.
+if desmaio and feminino and sim and sim and idoso then 171.
+if desmaio and feminino and sim and nao and jovem then 172.
+if desmaio and feminino and sim and nao and adulto then 173.
+if desmaio and feminino and sim and nao and idoso then 174.
+if desmaio and feminino and nao and sim and jovem then 175.
+if desmaio and feminino and nao and sim and adulto then 176.
+if desmaio and feminino and nao and sim and idoso then 177.
+if desmaio and feminino and nao and nao and jovem then 178.
+if desmaio and feminino and nao and nao and adulto then 179.
+if desmaio and feminino and nao and nao and idoso then 180.
+if dor_abdominal and masculino and sim and nao and jovem then 181.
+if dor_abdominal and masculino and sim and nao and adulto then 182.
+if dor_abdominal and masculino and sim and nao and idoso then 183.
+if dor_abdominal and masculino and nao and nao and jovem then 184.
+if dor_abdominal and masculino and nao and nao and adulto then 185.
+if dor_abdominal and masculino and nao and nao and idoso then 186.
+if dor_abdominal and feminino and sim and sim and jovem then 187.
+if dor_abdominal and feminino and sim and sim and adulto then 188.
+if dor_abdominal and feminino and sim and sim and idoso then 189.
+if dor_abdominal and feminino and sim and nao and jovem then 190.
+if dor_abdominal and feminino and sim and nao and adulto then 191.
+if dor_abdominal and feminino and sim and nao and idoso then 192.
+if dor_abdominal and feminino and nao and sim and jovem then 193.
+if dor_abdominal and feminino and nao and sim and adulto then 194.
+if dor_abdominal and feminino and nao and sim and idoso then 195.
+if dor_abdominal and feminino and nao and nao and jovem then 196.
+if dor_abdominal and feminino and nao and nao and adulto then 197.
+if dor_abdominal and feminino and nao and nao and idoso then 198.
+if vomito and masculino and sim and nao and jovem then 199.
+if vomito and masculino and sim and nao and adulto then 200.
+if vomito and masculino and sim and nao and idoso then 201.
+if vomito and masculino and nao and nao and jovem then 202.
+if vomito and masculino and nao and nao and adulto then 203.
+if vomito and masculino and nao and nao and idoso then 204.
+if vomito and feminino and sim and sim and jovem then 205.
+if vomito and feminino and sim and sim and adulto then 206.
+if vomito and feminino and sim and sim and idoso then 207.
+if vomito and feminino and sim and nao and jovem then 208.
+if vomito and feminino and sim and nao and adulto then 209.
+if vomito and feminino and sim and nao and idoso then 210.
+if vomito and feminino and nao and sim and jovem then 211.
+if vomito and feminino and nao and sim and adulto then 212.
+if vomito and feminino and nao and sim and idoso then 213.
+if vomito and feminino and nao and nao and jovem then 214.
+if vomito and feminino and nao and nao and adulto then 215.
+if vomito and feminino and nao and nao and idoso then 216.
+if diarreia and masculino and sim and nao and jovem then 217.
+if diarreia and masculino and sim and nao and adulto then 218.
+if diarreia and masculino and sim and nao and idoso then 219.
+if diarreia and masculino and nao and nao and jovem then 220.
+if diarreia and masculino and nao and nao and adulto then 221.
+if diarreia and masculino and nao and nao and idoso then 222.
+if diarreia and feminino and sim and sim and jovem then 223.
+if diarreia and feminino and sim and sim and adulto then 224.
+if diarreia and feminino and sim and sim and idoso then 225.
+if diarreia and feminino and sim and nao and jovem then 226.
+if diarreia and feminino and sim and nao and adulto then 227.
+if diarreia and feminino and sim and nao and idoso then 228.
+if diarreia and feminino and nao and sim and jovem then 229.
+if diarreia and feminino and nao and sim and adulto then 230.
+if diarreia and feminino and nao and sim and idoso then 231.
+if diarreia and feminino and nao and nao and jovem then 232.
+if diarreia and feminino and nao and nao and adulto then 233.
+if diarreia and feminino and nao and nao and idoso then 234.
+if constipacao and masculino and sim and nao and jovem then 235.
+if constipacao and masculino and sim and nao and adulto then 236.
+if constipacao and masculino and sim and nao and idoso then 237.
+if constipacao and masculino and nao and nao and jovem then 238.
+if constipacao and masculino and nao and nao and adulto then 239.
+if constipacao and masculino and nao and nao and idoso then 240.
+if constipacao and feminino and sim and sim and jovem then 241.
+if constipacao and feminino and sim and sim and adulto then 242.
+if constipacao and feminino and sim and sim and idoso then 243.
+if constipacao and feminino and sim and nao and jovem then 244.
+if constipacao and feminino and sim and nao and adulto then 245.
+if constipacao and feminino and sim and nao and idoso then 246.
+if constipacao and feminino and nao and sim and jovem then 247.
+if constipacao and feminino and nao and sim and adulto then 248.
+if constipacao and feminino and nao and sim and idoso then 249.
+if constipacao and feminino and nao and nao and jovem then 250.
+if constipacao and feminino and nao and nao and adulto then 251.
+if constipacao and feminino and nao and nao and idoso then 252.
+if dor_de_cabeca and masculino and sim and nao and jovem then 253.
+if dor_de_cabeca and masculino and sim and nao and adulto then 254.
+if dor_de_cabeca and masculino and sim and nao and idoso then 255.
+if dor_de_cabeca and masculino and nao and nao and jovem then 256.
+if dor_de_cabeca and masculino and nao and nao and adulto then 257.
+if dor_de_cabeca and masculino and nao and nao and idoso then 258.
+if dor_de_cabeca and feminino and sim and sim and jovem then 259.
+if dor_de_cabeca and feminino and sim and sim and adulto then 260.
+if dor_de_cabeca and feminino and sim and sim and idoso then 261.
+if dor_de_cabeca and feminino and sim and nao and jovem then 262.
+if dor_de_cabeca and feminino and sim and nao and adulto then 263.
+if dor_de_cabeca and feminino and sim and nao and idoso then 264.
+if dor_de_cabeca and feminino and nao and sim and jovem then 265.
+if dor_de_cabeca and feminino and nao and sim and adulto then 266.
+if dor_de_cabeca and feminino and nao and sim and idoso then 267.
+if dor_de_cabeca and feminino and nao and nao and jovem then 268.
+if dor_de_cabeca and feminino and nao and nao and adulto then 269.
+if dor_de_cabeca and feminino and nao and nao and idoso then 270.
+if fraqueza and masculino and sim and nao and jovem then 271.
+if fraqueza and masculino and sim and nao and adulto then 272.
+if fraqueza and masculino and sim and nao and idoso then 273.
+if fraqueza and masculino and nao and nao and jovem then 274.
+if fraqueza and masculino and nao and nao and adulto then 275.
+if fraqueza and masculino and nao and nao and idoso then 276.
+if fraqueza and feminino and sim and sim and jovem then 277.
+if fraqueza and feminino and sim and sim and adulto then 278.
+if fraqueza and feminino and sim and sim and idoso then 279.
+if fraqueza and feminino and sim and nao and jovem then 280.
+if fraqueza and feminino and sim and nao and adulto then 281.
+if fraqueza and feminino and sim and nao and idoso then 282.
+if fraqueza and feminino and nao and sim and jovem then 283.
+if fraqueza and feminino and nao and sim and adulto then 284.
+if fraqueza and feminino and nao and sim and idoso then 285.
+if fraqueza and feminino and nao and nao and jovem then 286.
+if fraqueza and feminino and nao and nao and adulto then 287.
+if fraqueza and feminino and nao and nao and idoso then 288.
+if ansiedade and masculino and sim and nao and jovem then 289.
+if ansiedade and masculino and sim and nao and adulto then 290.
+if ansiedade and masculino and sim and nao and idoso then 291.
+if ansiedade and masculino and nao and nao and jovem then 292.
+if ansiedade and masculino and nao and nao and adulto then 293.
+if ansiedade and masculino and nao and nao and idoso then 294.
+if ansiedade and feminino and sim and sim and jovem then 295.
+if ansiedade and feminino and sim and sim and adulto then 296.
+if ansiedade and feminino and sim and sim and idoso then 297.
+if ansiedade and feminino and sim and nao and jovem then 298.
+if ansiedade and feminino and sim and nao and adulto then 299.
+if ansiedade and feminino and sim and nao and idoso then 300.
+if ansiedade and feminino and nao and sim and jovem then 301.
+if ansiedade and feminino and nao and sim and adulto then 302.
+if ansiedade and feminino and nao and sim and idoso then 303.
+if ansiedade and feminino and nao and nao and jovem then 304.
+if ansiedade and feminino and nao and nao and adulto then 305.
+if ansiedade and feminino and nao and nao and idoso then 306.
+if dificuldade_para_dormir and masculino and sim and nao and jovem then 307.
+if dificuldade_para_dormir and masculino and sim and nao and adulto then 308.
+if dificuldade_para_dormir and masculino and sim and nao and idoso then 309.
+if dificuldade_para_dormir and masculino and nao and nao and jovem then 310.
+if dificuldade_para_dormir and masculino and nao and nao and adulto then 311.
+if dificuldade_para_dormir and masculino and nao and nao and idoso then 312.
+if dificuldade_para_dormir and feminino and sim and sim and jovem then 313.
+if dificuldade_para_dormir and feminino and sim and sim and adulto then 314.
+if dificuldade_para_dormir and feminino and sim and sim and idoso then 315.
+if dificuldade_para_dormir and feminino and sim and nao and jovem then 316.
+if dificuldade_para_dormir and feminino and sim and nao and adulto then 317.
+if dificuldade_para_dormir and feminino and sim and nao and idoso then 318.
+if dificuldade_para_dormir and feminino and nao and sim and jovem then 319.
+if dificuldade_para_dormir and feminino and nao and sim and adulto then 320.
+if dificuldade_para_dormir and feminino and nao and sim and idoso then 321.
+if dificuldade_para_dormir and feminino and nao and nao and jovem then 322.
+if dificuldade_para_dormir and feminino and nao and nao and adulto then 323.
+if dificuldade_para_dormir and feminino and nao and nao and idoso then 324.
+if hemorragia and masculino and sim and nao and jovem then 325.
+if hemorragia and masculino and sim and nao and adulto then 326.
+if hemorragia and masculino and sim and nao and idoso then 327.
+if hemorragia and masculino and nao and nao and jovem then 328.
+if hemorragia and masculino and nao and nao and adulto then 329.
+if hemorragia and masculino and nao and nao and idoso then 330.
+if hemorragia and feminino and sim and sim and jovem then 331.
+if hemorragia and feminino and sim and sim and adulto then 332.
+if hemorragia and feminino and sim and sim and idoso then 333.
+if hemorragia and feminino and sim and nao and jovem then 334.
+if hemorragia and feminino and sim and nao and adulto then 335.
+if hemorragia and feminino and sim and nao and idoso then 336.
+if hemorragia and feminino and nao and sim and jovem then 337.
+if hemorragia and feminino and nao and sim and adulto then 338.
+if hemorragia and feminino and nao and sim and idoso then 339.
+if hemorragia and feminino and nao and nao and jovem then 340.
+if hemorragia and feminino and nao and nao and adulto then 341.
+if hemorragia and feminino and nao and nao and idoso then 342.
+if perda_de_paladar and masculino and sim and nao and jovem then 343.
+if perda_de_paladar and masculino and sim and nao and adulto then 344.
+if perda_de_paladar and masculino and sim and nao and idoso then 345.
+if perda_de_paladar and masculino and nao and nao and jovem then 346.
+if perda_de_paladar and masculino and nao and nao and adulto then 347.
+if perda_de_paladar and masculino and nao and nao and idoso then 348.
+if perda_de_paladar and feminino and sim and sim and jovem then 349.
+if perda_de_paladar and feminino and sim and sim and adulto then 350.
+if perda_de_paladar and feminino and sim and sim and idoso then 351.
+if perda_de_paladar and feminino and sim and nao and jovem then 352.
+if perda_de_paladar and feminino and sim and nao and adulto then 353.
+if perda_de_paladar and feminino and sim and nao and idoso then 354.
+if perda_de_paladar and feminino and nao and sim and jovem then 355.
+if perda_de_paladar and feminino and nao and sim and adulto then 356.
+if perda_de_paladar and feminino and nao and sim and idoso then 357.
+if perda_de_paladar and feminino and nao and nao and jovem then 358.
+if perda_de_paladar and feminino and nao and nao and adulto then 359.
+if perda_de_paladar and feminino and nao and nao and idoso then 360.
+if rotura_muscular and masculino and sim and nao and jovem then 361.
+if rotura_muscular and masculino and sim and nao and adulto then 362.
+if rotura_muscular and masculino and sim and nao and idoso then 363.
+if rotura_muscular and masculino and nao and nao and jovem then 364.
+if rotura_muscular and masculino and nao and nao and adulto then 365.
+if rotura_muscular and masculino and nao and nao and idoso then 366.
+if rotura_muscular and feminino and sim and sim and jovem then 367.
+if rotura_muscular and feminino and sim and sim and adulto then 368.
+if rotura_muscular and feminino and sim and sim and idoso then 369.
+if rotura_muscular and feminino and sim and nao and jovem then 370.
+if rotura_muscular and feminino and sim and nao and adulto then 371.
+if rotura_muscular and feminino and sim and nao and idoso then 372.
+if rotura_muscular and feminino and nao and sim and jovem then 373.
+if rotura_muscular and feminino and nao and sim and adulto then 374.
+if rotura_muscular and feminino and nao and sim and idoso then 375.
+if rotura_muscular and feminino and nao and nao and jovem then 376.
+if rotura_muscular and feminino and nao and nao and adulto then 377.
+if rotura_muscular and feminino and nao and nao and idoso then 378.
 
 
 % Perfis para a doença "tosse"

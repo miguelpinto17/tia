@@ -17,6 +17,7 @@ mostrar_lista_tratamentos([Tratamento|Resto], Sintoma) :-
     write('- '), write(Tratamento), write(': '), dosagem(Tratamento, Dosagem), write(Dosagem), nl,
     mostrar_lista_tratamentos(Resto, Sintoma).
 
+
 menu:- 
     nl, nl,
     write('********************************************************************************************************'), nl,
