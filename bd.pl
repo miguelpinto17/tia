@@ -386,3 +386,19 @@ dosagem(exames_preventivos, 'Realizar exames de rotina periodicamente pode detec
 dosagem(relaxamento_mental, 'Praticar tecnicas de relaxamento mental, como a meditação, pode reduzir a ansiedade e o stress').
 dosagem(pratica_de_hobbies, 'Dedicar tempo a atividades que trazem prazer e relaxamento pode melhorar o bem-estar emocional').
 
+get_tratamentos([], []).
+get_tratamentos([(D,P,E)|R], L) :- 
+   get_tratamentos(R, R2), %obter trataments para as doenças seguintes
+   (
+      (
+         tratamento(D,T), %assignar o tratamento a uma variável 
+         L = [(D,P,E,T)|R2]
+      ); %submeter tratamento para a lista
+      L = R2
+   ).
+    
+apresentar_resultados([]).
+apresentar_resultados([(D,P,E,T)|R]):-
+   write('Pode ter '), write(D), write(' com '), write(P), write('% de certeza. A explicação é '),  
+   write(E), write(' e o tratamento '), write(T),
+   nl, apresentar_resultados(R).

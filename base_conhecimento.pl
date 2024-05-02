@@ -1,3 +1,4 @@
+:- dynamic obter_tratamento/6.
 if tosse and masculino and sim and nao and jovem then 1.
 if tosse and masculino and sim and nao and adulto then 2.
 if tosse and masculino and sim and nao and idoso then 3.
@@ -1197,25 +1198,5 @@ perfil(378, feminino, nao, nao, idoso, Z) :-
     obter_tratamento(rotura_muscular, feminino, nao, nao, idoso, Z).
 
 
-% Predicado para responder à consulta do usuário
-responder_consulta(Sintoma) :-
-    (tratamento(Sintoma, Tratamentos) ->
-        % Extrai apenas os nomes dos tratamentos
-        extrair_nomes_tratamentos(Tratamentos, NomesTratamentos),
-        % Apresenta apenas o primeiro nome de tratamento
-        nth0(0, NomesTratamentos, PrimeiroTratamento),
-        write('Tratamento sugerido: '), write(PrimeiroTratamento), nl,
-        % Obtém a dosagem ou recomendação de uso do tratamento
-        obter_dosagem(PrimeiroTratamento, Dosagem),
-        write('Dosagem/recomendação de uso: '), write(Dosagem), nl,
-        write('Voce esta ok com este tratamento? (sim/nao)'), nl,
-        read(RespostaTratamento),
-        % Se o cliente não estiver satisfeito, apresenta os nomes dos tratamentos adicionais
-        (RespostaTratamento == sim ->
-            write('Otimo! Espero que melhore em breve.'), nl;
-            apresentar_proximas_alternativas(NomesTratamentos, 1)
-        )
-    ;
-        write('Sintoma nao reconhecido ou nao registado na base de dados.'), nl).
 
 

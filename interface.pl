@@ -1,5 +1,10 @@
-:- consult('base_conhecimento.pl').
-:- consult('bd.pl').
+:- op(800, fx, if).
+:- op(700, xfx, then).
+:- op(300, xfy, or).
+:- op(500, xfy, and).
+:- op(800, xfx, <=).
+:-dynamic(fact/1).
+:- [bd, forward, certainty, proof, base_conhecimento].
 
 % Predicado para obter os tratamentos para um sintoma
 obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento) :-
@@ -9,14 +14,13 @@ obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento) :-
 mostrar_tratamentos(Sintoma, Sexo, Gravidez, DoencaCronica, Idade) :-
     write('Tratamentos disponiveis para '), write(Sintoma), write(':'), nl,
     obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento),
-    mostrar_lista_tratamentos(Tratamento, Sintoma). % Passar o sintoma para o predicado
+    mostrar_lista_tratamentos(Tratamento).
 
 % Predicado auxiliar para mostrar uma lista de tratamentos
-mostrar_lista_tratamentos([], _).
-mostrar_lista_tratamentos([Tratamento|Resto], Sintoma) :-
+mostrar_lista_tratamentos([]).
+mostrar_lista_tratamentos([Tratamento|Resto]) :-
     write('- '), write(Tratamento), write(': '), dosagem(Tratamento, Dosagem), write(Dosagem), nl,
-    mostrar_lista_tratamentos(Resto, Sintoma).
-
+    mostrar_lista_tratamentos(Resto).
 
 menu:- 
     nl, nl,
@@ -36,7 +40,7 @@ menu:-
     write('**   1- Iniciar'), nl,
     write('**   2- Sair'), nl, nl,
     read(Y),
-    avaliarEscolha(Y).
+	avaliarEscolha(Y).
 
 avaliarEscolha(1):- questao1.
 avaliarEscolha(2):- write('Foi um prazer ajuda-lo!'), nl, nl, halt.
@@ -48,10 +52,10 @@ questao1:-
     write('**'), nl,
     write('**  1 - Masculino'), nl,
     write('**  2 - Feminino'), nl, nl,
-    read(A1),
+    read(P1),
     (
-        (A1 == 1), Genero = masculino, questao3;
-        (A1 == 2), Genero = feminino,  questao2
+        (P1 == 1), assert(fact(masculino)) , questao3;
+        (P1 == 2), assert(fact(feminino)),  questao2
     ).
 
 questao2:- 
@@ -60,10 +64,10 @@ questao2:-
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Não'), nl, nl,
-    read(A2),
+    read(P1),
     (
-        (A2 == 1), Gravidez = sim, questao3;
-        (A2 == 2), Gravidez = nao, questao3
+        (P1 == 1), assert(fact(sim)), questao3;
+        (P1 == 2), assert(fact(nao)), questao3
     ).
 
 questao3:- 
@@ -72,10 +76,10 @@ questao3:-
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Não'), nl, nl,
-    read(A3),
+    read(P1),
     (
-        (A3 == 1), assert(fact(doenca_cronica)), questao4;
-        (A3 == 2),  questao4
+        (P1 == 1), assert(fact(sim)) , questao4;
+        (P1 == 2), assert(fact(nao)), questao4
     ).
 
 questao4:- 
@@ -85,63 +89,75 @@ questao4:-
     write('**  1 - 0-16'), nl, 
     write('**  2 - 17-64' ), nl,
     write('**  3 - 65-100' ), nl, nl,
-    read(A4), nl,
+    read(P1), nl,
     (
-        (A4 == 1), assert(fact(jovem)), questao5; 
-        (A4 == 2), assert(fact(adulto)), questao5;
-        (A4 == 3), assert(fact(idoso)), questao5
+        (P1 == 1), assert(fact(jovem)), questao5; 
+        (P1 == 2), assert(fact(adulto)), questao5;
+        (P1 == 3), assert(fact(idoso)), questao5
     ).
 
-
-    questao5:- 
-        write('********************************************************************************************************'), nl,
-        write('** Destas opcoes, introduza o numero correspondente ao que sente:'), nl,
-        write('**'), nl,
-        write('**  1 - Tosse'), nl,
-        write('**  2 - Febre'), nl, 
-        write('**  3 - Perda_de_peso'), nl,
-        write('**  4 - Mal_estar'), nl,
-        write('**  5 - Fadiga'), nl,
-        write('**  6 - Falta_de_ar'), nl,
-        write('**  7 - Dor_no_peito'), nl,
-        write('**  8 - Disturbios_pulmonares'), nl,
-        write('**  9 - Palpitacoes'), nl,
-        write('**  10 - Desmaio'), nl,
-        write('**  11 - Dor_abdominal'), nl,
-        write('**  12 - Vomito'), nl,
-        write('**  13 - Diarreia'), nl,
-        write('**  14 - Constipacao'), nl,
-        write('**  15 - Dor_de_cabeca'), nl,
-        write('**  16 - Fraqueza'), nl,
-        write('**  17 - Ansiedade'), nl,
-        write('**  18 - Dificuldade_para_dormir'), nl,
-        write('**  19 - Hemorragia'), nl,
-        write('**  20 - Perda_de_paladar'), nl,
-        write('**  21 - Rotura_muscular'), nl, nl,
-        read(A5),
-        (
-            (A5 == 1), Sintoma = tosse, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 2), Sintoma = febre, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 3), Sintoma = perda_de_peso, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 4), Sintoma = mal_estar, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 5), Sintoma = fadiga, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 6), Sintoma = falta_de_ar, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 7), Sintoma = dor_no_peito, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 8), Sintoma = disturbios_pulmonares, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 9), Sintoma = palpitacoes, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 10), Sintoma = desmaio, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 11), Sintoma = dor_abdominal, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 12), Sintoma = vomito, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 13), Sintoma = diarreia, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 14), Sintoma = constipacao, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 15), Sintoma = dor_de_cabeca, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 16), Sintoma = fraqueza, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 17), Sintoma = ansiedade, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 18), Sintoma = dificuldade_para_dormir, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 19), Sintoma = hemorragia, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 20), Sintoma = perda_de_paladar, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade);
-            (A5 == 21), Sintoma = rotura_muscular, mostrar_tratamentos(Sintoma, Genero, Gravidez, DoencaCronica, Idade)
+questao5:- 
+    write('********************************************************************************************************'), nl,
+    write('** Destas opcoes, introduza o numero correspondente ao que sente:'), nl,
+    write('**'), nl,
+    write('**  1 - Tosse'), nl,
+    write('**  2 - Febre'), nl, 
+    write('**  3 - Perda_de_peso'), nl,
+    write('**  4 - Mal_estar'), nl,
+    write('**  5 - Fadiga'), nl,
+    write('**  6 - Falta_de_ar'), nl,
+    write('**  7 - Dor_no_peito'), nl,
+    write('**  8 - Disturbios_pulmonares'), nl,
+    write('**  9 - Palpitacoes'), nl,
+    write('**  10 - Desmaio'), nl,
+    write('**  11 - Dor_abdominal'), nl,
+    write('**  12 - Vomito'), nl,
+    write('**  13 - Diarreia'), nl,
+    write('**  14 - Constipacao'), nl,
+    write('**  15 - Dor_de_cabeca'), nl,
+    write('**  16 - Fraqueza'), nl,
+    write('**  17 - Ansiedade'), nl,
+    write('**  18 - Dificuldade_para_dormir'), nl,
+    write('**  19 - Hemorragia'), nl,
+    write('**  20 - Perda_de_paladar'), nl,
+    write('**  21 - Rotura_muscular'), nl, nl,
+    read(P1),
+    (
+            (P1 == 1), assert(fact(tosse)), resultado;
+            (P1 == 2), assert(fact(febre)), resultado;
+            (P1 == 3), assert(fact(perda_de_peso)), resultado;
+            (P1 == 4), assert(fact(mal_estar)) , resultado;
+            (P1 == 5), assert(fact(fadiga)), resultado;
+            (P1 == 6), assert(fact(falta_de_ar)), resultado;
+            (P1 == 7), assert(fact(dor_no_peito)), resultado;
+            (P1 == 8), assert(fact(disturbios_pulmonares)), resultado;
+            (P1 == 9), assert(fact(palpitacoes)), resultado;
+            (P1 == 10), assert(fact(desmaio)), resultado;
+            (P1 == 11), assert(fact(dor_abdominal)), resultado;
+            (P1 == 12), assert(fact(vomito)), resultado;
+            (P1 == 13), assert(fact(diarreia)), resultado;
+            (P1 == 14), assert(fact(constipacao)), resultado;
+            (P1 == 15), assert(fact(dor_de_cabeca)), resultado;
+            (P1 == 16), assert(fact(fraqueza)), resultado;
+            (P1 == 17), assert(fact(ansiedade)), resultado;
+            (P1 == 18), assert(fact(dificuldade_em_dormir)), resultado;
+            (P1 == 19), assert(fact(hemorragia)), resultado;
+            (P1 == 20), assert(fact(perda_de_paladar)), resultado;
+            (P1 == 21), assert(fact(rotura_muscular)), resultado
         ).
-    
-:- initialization(menu).
+   
+        resultado :- 	write('********************************************************************************************************'), nl,
+				write('**                                                                                                    **'), nl,			 
+				write('**                                         Resultado Obtido                                           **'), nl, 
+				write('**                                                                                                    **'), nl,			 
+				write('********************************************************************************************************'),
+				result.
 
+resultadowrite(P):-	P1,nl,
+					write('     O seu perfil e o'),nl,
+					write('     *** '),write(P),write(' ***'),nl,nl,
+					write('     Tratamentos Aconselhados: '),perfil(P,P1),nl,nl,
+					write('********************************************************************************************************'),
+					retract(variavel(P1)), retractall(fact(_)).
+
+:- initialization(menu).
