@@ -7,16 +7,15 @@ obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento) :-
 
 % Predicado para mostrar os tratamentos para o sintoma selecionado
 mostrar_tratamentos(Sintoma, Sexo, Gravidez, DoencaCronica, Idade) :-
-    write('Tratamentos disponíveis para '), write(Sintoma), write(':'), nl,
+    write('Tratamentos disponiveis para '), write(Sintoma), write(':'), nl,
     obter_tratamento(Sintoma, Sexo, Gravidez, DoencaCronica, Idade, Tratamento),
-    mostrar_lista_tratamentos(Tratamento).
+    mostrar_lista_tratamentos(Tratamento, Sintoma). % Passar o sintoma para o predicado
 
 % Predicado auxiliar para mostrar uma lista de tratamentos
-mostrar_lista_tratamentos([]).
-mostrar_lista_tratamentos([Tratamento|Resto]) :-
-    write('- '), write(Tratamento), nl,
-    mostrar_lista_tratamentos(Resto).
-
+mostrar_lista_tratamentos([], _).
+mostrar_lista_tratamentos([Tratamento|Resto], Sintoma) :-
+    write('- '), write(Tratamento), write(': '), dosagem(Tratamento, Dosagem), write(Dosagem), nl,
+    mostrar_lista_tratamentos(Resto, Sintoma).
 
 menu:- 
     nl, nl,
@@ -68,7 +67,7 @@ questao2:-
 
 questao3:- 
     write('********************************************************************************************************'), nl,
-    write('**  Tem alguma doença cronica?'), nl,
+    write('**  Tem alguma doenca cronica?'), nl,
     write('**'), nl,
     write('**  1 - Sim'), nl,
     write('**  2 - Não'), nl, nl,
@@ -91,6 +90,7 @@ questao4:-
         (A4 == 2), assert(fact(adulto)), questao5;
         (A4 == 3), assert(fact(idoso)), questao5
     ).
+
 
     questao5:- 
         write('********************************************************************************************************'), nl,
