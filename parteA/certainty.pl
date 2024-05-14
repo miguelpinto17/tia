@@ -4,6 +4,11 @@
 % Rule interpreter with certainties
 
 % result_certainty( Proposition, Certainty)
+:- op(800, fx, if).
+:- op(700, xfx, then).
+:- op(300, xfy, or).
+:- op(500, xfy, and).
+:- op(800, xfx, <=).
 
 result_certainty( P, Cert)  :-
    fact( P: Cert).
@@ -25,9 +30,12 @@ result_certainty( P, Cert)  :-
 
 get_certainties([],[]).
 get_certainties([D|R], L):-
-   get_certainties(R, R2), %obter probabilidade para as doenças seguintes
+   %obter probabilidade para as doenças 
+   get_certainties(R, R2), 
    (
-      (result_certainty(D,P), %assignar a probabilidade a uma variável 
-      L = [(D,P)|R2]); %submeter probabilidade para a lista
-      L = R2 
+      %associar a probabilidade a uma variável 
+      (result_certainty(D,P), 
+       %submeter a probabilidade para uma lista
+      L = [(D,P)|R2]);
+      L = R2
    ).
