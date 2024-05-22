@@ -1,5 +1,3 @@
-
-
 %custo(Tratamento, Custo)
 custo(paracetamol, 5).
 custo(brufen, 4).
@@ -23,62 +21,59 @@ custo(inalo_terapia, 90).
 custo(soro, 15).
 custo(oculos, 500).
 custo(lentes_contacto, 300).
-custo(ambulatorio, 800).
+custo(operacao, 800).
+
+doenca(gripe, paracetamol).
+doenca(gripe, brufen).
+doenca(gripe, descanso).
+doenca(gripe, aspirina).
+doenca(alergia, anti_histaminico).
+doenca(alergia, inalacoes).
+doenca(diabete, insulina).
+doenca(diabete, dieta).
+doenca(infeccao, antibiotico).
+doenca(infeccao, descanso).
+doenca(infeccao, internamento).
+doenca(doenca_renal, dialise).
+doenca(doenca_renal, soro).
+doenca(ansiedade, calmante).
+doenca(ansiedade, desporto).
+doenca(ansiedade, ginastica).
+doenca(lesao, fisioterapia).
+doenca(lesao, descanso).
+doenca(lesao, cirurgia).
+doenca(problema_ocular, oculos).
+doenca(problema_ocular, lentes_contacto).
+doenca(problema_ocular, cirurgia).
+doenca(asma, inalacoes).
+doenca(asma, inalo_terapia).
 
 
-% Define the percurso/3 predicate
-percurso(origem, paracetamol, 2).
-percurso(origem, brufen, 3).
-percurso(origem, aspirina, 4).
-percurso(origem, anti_histaminico, 5).
-percurso(origem, descanso, 2).
-percurso(paracetamol, descanso, 2).
-percurso(brufen, descanso, 2).
-percurso(paracetamol, fisioterapia, 6).
-percurso(brufen, fisioterapia, 6).
-percurso(fisioterapia, fim, 0).
-percurso(paracetamol, cine_terapia, 8).
-percurso(descanso, cine_terapia, 8).
-percurso(cine_terapia, fim, 0).
-percurso(brufen, desporto, 12).
-percurso(fisioterapia, cirurgia, 3).
-percurso(aspirina, inalacoes, 10).
-percurso(aspirina, insulina, 30).
-percurso(paracetamol, antibiotico, 8).
-percurso(aspirina, antibiotico, 8).
-percurso(anti_histaminico, antibiotico, 8).
-percurso(aspirina, dieta, 30).
-percurso(desporto, dieta, 30).
-percurso(dieta, fim, 0).
-percurso(brufen, ginastica, 15).
-percurso(fisioterapia, ginastica, 15).
-percurso(anti_histaminico, internamento, 3).
-percurso(cirurgia, internamento, 3).
-percurso(antibiotico, internamento, 3).
-percurso(internamento, fim, 0).
-percurso(insulina, dialise, 10).
-percurso(dialise, fim, 0).
-percurso(fisioterapia, calmante, 90).
-percurso(cine_terapia, calmante, 90).
-percurso(desporto, calmante, 90).
-percurso(fisioterapia, injecoes, 3).
-percurso(insulina, injecoes, 3).
-percurso(injecoes, inalo_terapia, 6).
-percurso(inalo_terapia, fim, 0).
-percurso(aspirina, soro, 8).
-percurso(cirurgia, soro, 8).
-percurso(inalacoes, soro, 8).
-percurso(internamento, soro, 8).
-percurso(paracetamol, oculos, 1000).
-percurso(brufen, oculo, 1000).
-percurso(aspirina, oculos, 1000).
-percurso(descanso, oculos, 1000).
-percurso(oculos, fim, 0).
-percurso(paracetamol, lentes_contacto, 200).
-percurso(brufen, lentes_contacto, 200).
-percurso(aspirina, lentes_contacto, 200).
-percurso(descanso, lentes_contacto, 200).
-percurso(lentes_contacto, fim, 0).
+% Define the duracao/3 predicate
+duracao(paracetamol, 2).
+duracao(brufen, 3).
+duracao(aspirina, 4).
+duracao(anti_histaminico, 5).
+duracao(descanso, 2).
+duracao(inalacoes, 10).
+duracao(insulina, 30).
+duracao(dieta, 30).
+duracao(antibiotico, 8).
+duracao(descanso, 2).
+duracao(internamento, 3).
+duracao(dialise, 10).
+duracao(soro, 8).
+duracao(desporto, 12).
+duracao(calmante, 90).
+duracao(ginastica, 15).
+duracao(fisioterapia, 6).
+duracao(descanso, 2).
+duracao(cirurgia, 3).
+duracao(oculos, 1000).
+duracao(lentes_contacto, 200).
+duracao(inalo_terapia, 6).
+duracao(inalacoes, 10).
+
 
 %arco(Origem, Destino)
 arco(origem, paracetamol).

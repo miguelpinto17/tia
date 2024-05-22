@@ -1,37 +1,36 @@
-% Carregar a base de dados
-:- [base_dados].
+% Predicados dinâmicos para armazenar os custos dos tratamentos e os percursos entre tratamentos
+:- dynamic custo/2.
+:- dynamic percurso/3.
+% Predicado para encontrar o caminho mais curto entre o tratamento escolhido e o ponto final (fim)
+caminhoMaisCurto(Tratamento, Caminho) :-
+    bfs([[Tratamento]], Caminhos),
+    shortest_path(Caminhos, Caminho).
 
-% Encontrar todos os caminhos de X para Y
-caminho(X, Y, Caminho) :-
-    caminho(X, Y, [X], Caminho).
+% Busca em largura para encontrar todos os caminhos possíveis entre o tratamento inicial e o ponto final
+bfs(Queue, Paths) :-
+    bfs(Queue, [], Paths).
 
-% Caso base: se X é igual a Y, então o caminho é o próprio X
-caminho(Y, Y, Caminho, Caminho).
+bfs([], Visited, Visited).
+bfs([[Tratamento|Caminho]|Resto], Visited, Paths) :-
+    findall([Next| [Tratamento|Caminho]], (percurso(Tratamento, Next, _), \+ member(Next, [Tratamento|Caminho])), NextPaths),
+    append(Resto, NextPaths, NewQueue),
+    bfs(NewQueue, [[Tratamento|Caminho]|Visited], Paths).
 
-% Busca recursiva: expandir o caminho
-caminho(X, Y, Visitado, Caminho) :-
-    arco(X, Prox),
-    \+ member(Prox, Visitado), % Evitar ciclos
-    caminho(Prox, Y, [Prox | Visitado], Caminho).
+% Predicado para encontrar o caminho mais curto a partir de uma lista de caminhos
+shortest_path(Caminhos, ShortestPath) :-
+    maplist(path_cost, Caminhos, Costs),
+    min_list(Costs, ShortestCost),
+    member(ShortestPath-Custo, Caminhos),
+    path_cost(ShortestPath, ShortestCost).
 
-% Encontrar todos os caminhos de X para Y
-todos_caminhos(X, Y, Caminhos) :-
-    findall(Caminho, caminho(X, Y, Caminho), Caminhos).
+% Predicado para calcular o custo total de um caminho
+path_cost(Caminho, Custo) :-
+    reverse(Caminho, ReversePath),
+    path_cost_aux(ReversePath, 0, Custo).
 
-% Encontrar o caminho mais curto (menor número de arcos)
-caminho_mais_curto(X, Y, CaminhoMaisCurto) :-
-    todos_caminhos(X, Y, Caminhos),
-    menor_caminho(Caminhos, CaminhoMaisCurto).
-
-% Comparar caminhos e encontrar o menor
-menor_caminho([Caminho], Caminho).
-menor_caminho([C1, C2 | Restante], MenorCaminho) :-
-    length(C1, L1),
-    length(C2, L2),
-    (L1 =< L2 -> menor_caminho([C1 | Restante], MenorCaminho)
-    ; menor_caminho([C2 | Restante], MenorCaminho)).
-
-% Consulta para encontrar o caminho mais curto para o fim
-caminho_mais_curto_para_fim(Origem, Caminho) :-
-    caminho_mais_curto(Origem, fim, Caminho).
-
+path_cost_aux([], Custo, Custo).
+path_cost_aux([_], CustoParcial, Custo) :- Custo = CustoParcial.
+path_cost_aux([[Origem, Destino]|Resto], CustoParcial, Custo) :-
+    percurso(Origem, Destino, Distancia),
+    NovoCusto is CustoParcial + Distancia,
+    path_cost_aux(Resto, NovoCusto, Custo).
