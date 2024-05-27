@@ -1,4 +1,4 @@
-% Carregar a base de dados
+% Carregar a base de dadoss
 :- [base_dados].
 
 % Encontrar todos os tratamentos para uma doença
